@@ -117,7 +117,7 @@ public class PoolManager : ManagerBase<PoolManager>
         }
         else
         {
-            objectPoolDic.Add(name, new ObjectPoolData());
+            objectPoolDic.Add(name, new ObjectPoolData(obj));
         }
     }
 
