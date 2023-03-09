@@ -83,6 +83,24 @@ public class PoolManager : ManagerBase<PoolManager>
         string name = prefab.name;
         return gameObjectPoolDic.ContainsKey(name) && gameObjectPoolDic[name].poolQueue.Count > 0;
     }
+
+    /// <summary>
+    /// 检查缓存 如果成功 则加载游戏物体 不成功返回null
+    /// </summary>
+    public GameObject CheckCacheAndLoadGameObject(string path, Transform parent = null)
+    {
+        //通过路径最终预制体的名称
+        string[] pathSplit = path.Split('/');
+        string prefabName = pathSplit[pathSplit.Length - 1];
+        if (gameObjectPoolDic.ContainsKey(prefabName) && gameObjectPoolDic[prefabName].poolQueue.Count > 0)
+        {
+            return gameObjectPoolDic[prefabName].GetObj(parent);
+        }
+        else
+        {
+            return null;
+        }
+    }
     #endregion
 
     #region 普通对象相关操作

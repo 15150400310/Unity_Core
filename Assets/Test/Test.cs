@@ -4,35 +4,27 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    public GameObject go;
+    SphereController sphere;
     void Start()
     {
-        PoolManager.Instance.GetGameObject(go);
-        PoolManager.Instance.GetGameObject(go);
-        PoolManager.Instance.GetGameObject(go);
-        GameObject go2 = PoolManager.Instance.GetGameObject(go);
-        PoolManager.Instance.PushGameObject(go2);
+        
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A)&& sphere==null)
         {
-            PoolManager.Instance.ClearGameObject(go);
+            ResManager.Instance.LoadGameObjectAsync<SphereController>("Sphere", Call);
         }
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && sphere != null)
         {
-            GameObject go1 = PoolManager.Instance.GetGameObject(go);
-            GameObject go2 = PoolManager.Instance.GetGameObject(go);
-            GameObject go3 = PoolManager.Instance.GetGameObject(go);
-            PoolManager.Instance.PushGameObject(go1);
-            PoolManager.Instance.PushGameObject(go2);
-            PoolManager.Instance.PushGameObject(go3);
+            PoolManager.Instance.PushGameObject(sphere.gameObject);
+            sphere = null;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            PoolManager.Instance.ClearAllGameObject();
-        }
+    void Call(SphereController sphereController)
+    {
+        sphere = sphereController;
     }
 }
