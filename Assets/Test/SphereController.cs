@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[Pool]
 public class SphereController : MonoBehaviour
 {
     // Start is called before the first frame update

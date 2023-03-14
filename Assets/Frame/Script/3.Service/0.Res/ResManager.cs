@@ -12,8 +12,7 @@ public class ResManager : ManagerBase<ResManager>
     {
         base.Init();
         //TODO:替换成真实的配置
-        wantCacheDic = new Dictionary<Type, bool>();
-        wantCacheDic.Add(typeof(SphereController), true);
+        wantCacheDic = GameRoot.Instance.GameSetting.cacheDic;
     }
 
     /// <summary>
