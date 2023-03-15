@@ -7,13 +7,34 @@ public class Test : MonoBehaviour
 {
     void Start()
     {
-        this.OnClick(Click);
-        this.RemoveAllListener(FrameEventType.OnClick);
-        PoolManager.Instance.OnClick(Click);
+        
     }
 
-    void Click(PointerEventData data,params object[] obj)
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            EventManager.AddEventListener("Test", Func);
+        }
 
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            EventManager.EventTrigger("Test");
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            EventManager.RemoveEventListener("Test", Func);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            EventManager.Clear();
+        }
+    }
+
+    void Func()
+    {
+        Debug.Log("rrr");
     }
 }
