@@ -14,27 +14,12 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            EventManager.AddEventListener("Test", Func);
-        }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            EventManager.EventTrigger("Test");
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            EventManager.RemoveEventListener("Test", Func);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            EventManager.Clear();
+            AudioManager.Instance.PlayOnShot("cannon_01",Camera.main.transform.position,1,true,CallBack,2);
         }
     }
 
-    void Func()
+    void CallBack()
     {
-        Debug.Log("rrr");
+        Debug.Log("CallBack");
     }
 }

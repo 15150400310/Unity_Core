@@ -258,6 +258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGAudioSource: {fileID: 875907174}
+  prefab_AudioPlay: {fileID: 7807274709900920840, guid: d8de6dfae2101394fa988b46a0b9d46c,
+    type: 3}
   globalVolume: 1
   bgVolume: 0.25
   effectVolume: 0.47
