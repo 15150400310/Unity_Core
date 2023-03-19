@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResManager : ManagerBase<ResManager>
+public static class ResManager
 {
     //需要缓存的类型
-    private Dictionary<Type, bool> wantCacheDic;
+    private static Dictionary<Type, bool> wantCacheDic;
 
-    public override void Init()
+    static ResManager()
     {
-        base.Init();
-        //TODO:替换成真实的配置
         wantCacheDic = GameRoot.Instance.GameSetting.cacheDic;
     }
 
@@ -20,7 +18,7 @@ public class ResManager : ManagerBase<ResManager>
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    private bool CheckCacheDic(Type type)
+    private static bool CheckCacheDic(Type type)
     {
         return wantCacheDic.ContainsKey(type);
     }
@@ -28,7 +26,7 @@ public class ResManager : ManagerBase<ResManager>
     /// <summary>
     /// 加载Unity资源 如AudioClip Sprite
     /// </summary>
-    public T LoadAsset<T>(string path) where T :UnityEngine.Object
+    public static T LoadAsset<T>(string path) where T :UnityEngine.Object
     {
         return Resources.Load<T>(path);
     }
@@ -37,7 +35,7 @@ public class ResManager : ManagerBase<ResManager>
     /// 获取实例-普通Class
     /// 如果类型需要缓存,会从对象池中获取
     /// </summary>
-    public T Load<T>() where T : class, new()
+    public static T Load<T>() where T : class, new()
     {
         //需要缓存
         if (CheckCacheDic(typeof(T)))
@@ -53,7 +51,7 @@ public class ResManager : ManagerBase<ResManager>
     /// <summary>
     /// 获取实例-组件
     /// </summary>
-    public T Load<T>(string path,Transform parent = null) where T: Component
+    public static T Load<T>(string path,Transform parent = null) where T: Component
     {
         //需要缓存
         if (CheckCacheDic(typeof(T)))
@@ -73,7 +71,7 @@ public class ResManager : ManagerBase<ResManager>
     /// <param name="path"></param>
     /// <param name="callBack"></param>
     /// <param name="parent"></param>
-    public void LoadGameObjectAsync<T>(string path,Action<T> callBack = null,Transform parent = null) where T : UnityEngine.Object
+    public static void LoadGameObjectAsync<T>(string path,Action<T> callBack = null,Transform parent = null) where T : UnityEngine.Object
     {
         //对象池里面有
         if (CheckCacheDic(typeof(T)))
@@ -86,17 +84,17 @@ public class ResManager : ManagerBase<ResManager>
             //对象池没有
             else
             {
-                StartCoroutine(DoLoadGameObjectAsync<T>(path, callBack, parent));
+                MonoManager.Instance.StartCoroutine(DoLoadGameObjectAsync<T>(path, callBack, parent));
             }
         }
         //对象池没有
         else
         {
-            StartCoroutine(DoLoadGameObjectAsync<T>(path, callBack, parent));
+            MonoManager.Instance.StartCoroutine(DoLoadGameObjectAsync<T>(path, callBack, parent));
         }
     }
 
-    IEnumerator DoLoadGameObjectAsync<T>(string path, Action<T> callBack = null, Transform parent = null) where T : UnityEngine.Object
+    static IEnumerator DoLoadGameObjectAsync<T>(string path, Action<T> callBack = null, Transform parent = null) where T : UnityEngine.Object
     {
         ResourceRequest request = Resources.LoadAsync<GameObject>(path);
         yield return request;
@@ -109,12 +107,12 @@ public class ResManager : ManagerBase<ResManager>
     /// <typeparam name="T"></typeparam>
     /// <param name="path"></param>
     /// <param name="callBack"></param>
-    public void LoadAssetAsync<T>(string path,Action<T> callBack) where T : UnityEngine.Object
+    public static void LoadAssetAsync<T>(string path,Action<T> callBack) where T : UnityEngine.Object
     {
-        StartCoroutine(DoLoadAssetAsync<T>(path, callBack));
+        MonoManager.Instance.StartCoroutine(DoLoadAssetAsync<T>(path, callBack));
     }
 
-    IEnumerator DoLoadAssetAsync<T>(string path,Action<T> callBack) where T : UnityEngine.Object
+    static IEnumerator DoLoadAssetAsync<T>(string path,Action<T> callBack) where T : UnityEngine.Object
     {
         ResourceRequest request = Resources.LoadAsync<T>(path);
         yield return request;
@@ -124,7 +122,7 @@ public class ResManager : ManagerBase<ResManager>
     /// <summary>
     /// 获取预制体
     /// </summary>
-    public GameObject GetPrefab(string path)
+    public static GameObject GetPrefab(string path)
     {
         GameObject prefab = Resources.Load<GameObject>(path);
         if (prefab != null)
@@ -140,7 +138,7 @@ public class ResManager : ManagerBase<ResManager>
     /// <summary>
     /// 基于预制体实例化
     /// </summary>
-    public GameObject InstantiateForPrefab(string path, Transform parent = null)
+    public static GameObject InstantiateForPrefab(string path, Transform parent = null)
     {
         return InstantiateForPrefab(GetPrefab(path), parent);
     }
@@ -148,9 +146,9 @@ public class ResManager : ManagerBase<ResManager>
     /// <summary>
     /// 基于预制体实例化
     /// </summary>
-    public GameObject InstantiateForPrefab(GameObject prefab, Transform parent = null)
+    public static GameObject InstantiateForPrefab(GameObject prefab, Transform parent = null)
     {
-        GameObject go = Instantiate<GameObject>(prefab, parent);
+        GameObject go = GameObject.Instantiate<GameObject>(prefab, parent);
         go.name = prefab.name;
         return go;
     }

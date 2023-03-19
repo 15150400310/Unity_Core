@@ -1,25 +1,47 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class Test : MonoBehaviour
+
+public class TestMono
 {
-    void Start()
+    Coroutine c;
+    public TestMono()
     {
-        
+        this.AddUpdateListener(OnUpdate);
+        c = this.StartCoroutine(DoAction());
     }
 
-    private void Update()
+    void OnUpdate()
     {
+        Debug.Log("OnUpdate");
         if (Input.GetKeyDown(KeyCode.A))
         {
-            AudioManager.Instance.PlayOnShot("cannon_01",Camera.main.transform.position,1,true,CallBack,2);
+            this.RemoveUpdateListener(OnUpdate);
+            this.StopCoroutine(c);
         }
     }
 
-    void CallBack()
+    IEnumerator DoAction()
     {
-        Debug.Log("CallBack");
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            Debug.Log("DoAction");
+        }
     }
+}
+
+public class Test : MonoBehaviour
+{
+    public TestMono t;
+    void Start()
+    {
+        //t = new TestMono();
+        ResManager.LoadGameObjectAsync<SphereCollider>("Sphere", a=> { Debug.Log(a.transform.name); }, null);
+    }
+
+    
 }

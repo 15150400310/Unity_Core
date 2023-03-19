@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System;
-using UnityEngine.Events;
 
 public class AudioManager : ManagerBase<AudioManager>
 {
@@ -199,7 +198,7 @@ public class AudioManager : ManagerBase<AudioManager>
 
     public void PlayBGAudio(string clipPath, bool loop = true, float volume = -1)
     {
-        AudioClip clip = ResManager.Instance.LoadAsset<AudioClip>(clipPath);
+        AudioClip clip = ResManager.LoadAsset<AudioClip>(clipPath);
         PlayBGAudio(clip, loop, volume);
     }
     #endregion
@@ -233,12 +232,12 @@ public class AudioManager : ManagerBase<AudioManager>
     /// <param name="clip"></param>
     /// <param name="callBack"></param>
     /// <param name="time"></param>
-    private void RecycleAudioPlay(AudioSource audioSource,AudioClip clip,UnityAction callBack,float time)
+    private void RecycleAudioPlay(AudioSource audioSource,AudioClip clip,Action callBack,float time)
     {
         StartCoroutine(DoRecycleAudioPlay(audioSource, clip, callBack, time));
     }
 
-    private IEnumerator DoRecycleAudioPlay(AudioSource audioSource, AudioClip clip, UnityAction callBack, float time)
+    private IEnumerator DoRecycleAudioPlay(AudioSource audioSource, AudioClip clip, Action callBack, float time)
     {
         //延迟Clip的长度(秒)
         yield return new WaitForSeconds(clip.length);
@@ -261,7 +260,7 @@ public class AudioManager : ManagerBase<AudioManager>
     /// <param name="is3D">是否3D</param>
     /// <param name="callBack">回调函数-在音效播放完成后执行</param>
     /// <param name="callBackTime">回调函数在音乐播放完成后执行的延迟时间</param>
-    public void PlayOnShot(AudioClip clip,Component component,float volumeScale = 1,bool is3D = true,UnityAction callBack = null,float callBackTime = 0)
+    public void PlayOnShot(AudioClip clip,Component component,float volumeScale = 1,bool is3D = true,Action callBack = null,float callBackTime = 0)
     {
         //初始化音乐播放器
         AudioSource audioSource = GetAudioPlay(is3D);
@@ -284,7 +283,7 @@ public class AudioManager : ManagerBase<AudioManager>
     /// <param name="is3D">是否3D</param>
     /// <param name="callBack">回调函数-在音效播放完成后执行</param>
     /// <param name="callBackTime">回调函数在音乐播放完成后执行的延迟时间</param>
-    public void PlayOnShot(AudioClip clip,Vector3 position, float volumeScale = 1, bool is3D = true, UnityAction callBack = null, float callBackTime = 0)
+    public void PlayOnShot(AudioClip clip,Vector3 position, float volumeScale = 1, bool is3D = true, Action callBack = null, float callBackTime = 0)
     {
         //初始化音乐播放器
         AudioSource audioSource = GetAudioPlay(is3D);
@@ -306,9 +305,9 @@ public class AudioManager : ManagerBase<AudioManager>
     /// <param name="is3D">是否3D</param>
     /// <param name="callBack">回调函数-在音效播放完成后执行</param>
     /// <param name="callBackTime">回调函数在音乐播放完成后执行的延迟时间</param>
-    public void PlayOnShot(string clipPath, Component component, float volumeScale = 1, bool is3D = true, UnityAction callBack = null, float callBackTime = 0)
+    public void PlayOnShot(string clipPath, Component component, float volumeScale = 1, bool is3D = true, Action callBack = null, float callBackTime = 0)
     {
-        AudioClip audioClip = ResManager.Instance.LoadAsset<AudioClip>(clipPath);
+        AudioClip audioClip = ResManager.LoadAsset<AudioClip>(clipPath);
         if (audioClip!=null)
         {
             PlayOnShot(audioClip, component, volumeScale, is3D, callBack, callBackTime);
@@ -324,9 +323,9 @@ public class AudioManager : ManagerBase<AudioManager>
     /// <param name="is3D">是否3D</param>
     /// <param name="callBack">回调函数-在音效播放完成后执行</param>
     /// <param name="callBackTime">回调函数在音乐播放完成后执行的延迟时间</param>
-    public void PlayOnShot(string clipPath, Vector3 position, float volumeScale = 1, bool is3D = true, UnityAction callBack = null, float callBackTime = 0)
+    public void PlayOnShot(string clipPath, Vector3 position, float volumeScale = 1, bool is3D = true, Action callBack = null, float callBackTime = 0)
     {
-        AudioClip audioClip = ResManager.Instance.LoadAsset<AudioClip>(clipPath);
+        AudioClip audioClip = ResManager.LoadAsset<AudioClip>(clipPath);
         if (audioClip != null)
         {
             PlayOnShot(audioClip, position, volumeScale, is3D, callBack, callBackTime);

@@ -23,22 +23,12 @@ public class GameSetting : ConfigBase
 
     [Button(Name = "初始化游戏配置",ButtonHeight = 50)]
     [GUIColor(0,1,0)]
-    private void Init()
-    {
-        PoolAttributeOnEditor();
-    }
-
     /// <summary>
     /// 编译前执行函数
     /// </summary>
-    [InitializeOnLoadMethod]
-    private static void LoadForEditor()
+    public void InitForEditor()
     {
-        if (GameObject.Find("GameRoot")!=null)
-        {
-            GameObject.Find("GameRoot").GetComponent<GameRoot>().GameSetting.Init();
-        }
-        
+        PoolAttributeOnEditor();
     }
 
     /// <summary>
