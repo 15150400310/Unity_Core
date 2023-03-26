@@ -5,43 +5,150 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TestMono
+public enum TestStateType
 {
-    Coroutine c;
-    public TestMono()
+    A,
+    B,
+    C,
+    D,
+}
+public class TestStateBase : StateBase
+{
+    protected Text text;
+    public override void Init(IStateMachineOwner owner, int stateType, StateMachine stateMachine)
     {
-        this.AddUpdateListener(OnUpdate);
-        c = this.StartCoroutine(DoAction());
+        base.Init(owner, stateType, stateMachine);
+        text = (owner as Test).text;
     }
 
-    void OnUpdate()
+    public override void UnInit()
     {
-        Debug.Log("OnUpdate");
-        if (Input.GetKeyDown(KeyCode.A))
+        base.UnInit();
+        text = null;
+        Debug.Log("UnInit");
+    }
+}
+[Pool]
+public class Test_A: TestStateBase
+{
+    public override void Init(IStateMachineOwner owner, int stateType, StateMachine stateMachine)
+    {
+        base.Init(owner, stateType, stateMachine);
+        Debug.Log("A_Init");
+    }
+
+    public override void Enter()
+    {
+        text.text = "A";
+    }
+
+    public override void Update()
+    {
+        Debug.Log("A_Update");
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.RemoveUpdateListener(OnUpdate);
-            this.StopCoroutine(c);
+            stateMachine.ChangeState<Test_B>((int)TestStateType.B);
         }
     }
-
-    IEnumerator DoAction()
+}
+[Pool]
+public class Test_B : TestStateBase
+{
+    public override void Init(IStateMachineOwner owner, int stateType, StateMachine stateMachine)
     {
-        while (true)
+        base.Init(owner, stateType, stateMachine);
+        Debug.Log("B_Init");
+    }
+
+    public override void Enter()
+    {
+        text.text = "B";
+    }
+
+    public override void Update()
+    {
+        Debug.Log("B_Update");
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            yield return new WaitForSeconds(1);
-            Debug.Log("DoAction");
+            stateMachine.ChangeState<Test_C>((int)TestStateType.C);
+        }
+    }
+}
+[Pool]
+public class Test_C : TestStateBase
+{
+    public override void Init(IStateMachineOwner owner, int stateType, StateMachine stateMachine)
+    {
+        base.Init(owner, stateType, stateMachine);
+        Debug.Log("C_Init");
+    }
+
+    public override void Enter()
+    {
+        text.text = "C";
+    }
+
+    public override void Update()
+    {
+        Debug.Log("C_Update");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            stateMachine.ChangeState<Test_D>((int)TestStateType.D);
+        }
+    }
+}
+[Pool]
+public class Test_D : TestStateBase
+{
+    public override void Init(IStateMachineOwner owner, int stateType, StateMachine stateMachine)
+    {
+        base.Init(owner, stateType, stateMachine);
+        Debug.Log("D_Init");
+    }
+
+    public override void Enter()
+    {
+        text.text = "D";
+    }
+
+    public override void Update()
+    {
+        Debug.Log("D_Update");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            stateMachine.ChangeState<Test_A>((int)TestStateType.A);
         }
     }
 }
 
-public class Test : MonoBehaviour
+public class Test : MonoBehaviour,IStateMachineOwner
 {
-    public TestMono t;
+    public Text text { get; private set; }
+    StateMachine stateMachine;
     void Start()
     {
-        //t = new TestMono();
-        ResManager.LoadGameObjectAsync<SphereCollider>("Sphere", a=> { Debug.Log(a.transform.name); }, null);
+        text = GetComponent<Text>();
+        stateMachine = ResManager.Load<StateMachine>();
+        stateMachine.Init(this);
+        stateMachine.ChangeState<Test_A>((int)TestStateType.A);
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            stateMachine.ChangeState<Test_A>((int)TestStateType.A);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            stateMachine.Stop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            stateMachine.Destroy();
+            stateMachine = null;
+        }
+    }
 }

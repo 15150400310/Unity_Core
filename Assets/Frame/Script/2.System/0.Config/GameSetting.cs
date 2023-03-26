@@ -19,6 +19,10 @@ public class GameSetting : ConfigBase
     [DictionaryDrawerSettings(KeyLabel ="类型",ValueLabel ="皆可缓存")]
     public Dictionary<Type, bool> cacheDic = new Dictionary<Type, bool>();
 
+    [LabelText("UI窗口设置")]
+    [DictionaryDrawerSettings(KeyLabel = "类型", ValueLabel = "UI窗口数据")]
+    public Dictionary<Type, UIElement> UIElementDic = new Dictionary<Type, UIElement>();
+
 #if UNITY_EDITOR
 
     [Button(Name = "初始化游戏配置",ButtonHeight = 50)]
@@ -29,6 +33,7 @@ public class GameSetting : ConfigBase
     public void InitForEditor()
     {
         PoolAttributeOnEditor();
+        UIElementAttributeOnEditor();
     }
 
     /// <summary>
@@ -51,6 +56,38 @@ public class GameSetting : ConfigBase
                 if (pool!=null)
                 {
                     cacheDic.Add(type, true);
+                }
+            }
+        }
+    }
+
+    private void UIElementAttributeOnEditor()
+    {
+        UIElementDic.Clear();
+        //获取所有程序集
+        System.Reflection.Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
+
+        Type baseType = typeof(UI_WindowBase);
+        //遍历程序集
+        foreach (System.Reflection.Assembly assembly in asms)
+        {
+            //遍历程序集下的每一个类型
+            Type[] types = assembly.GetTypes();
+            foreach (Type type in types)
+            {
+                if (baseType.IsAssignableFrom(type)
+                    &&!type.IsAbstract)
+                {
+                    UIElementAttribute attribute = type.GetCustomAttribute<UIElementAttribute>();
+                    if (attribute!=null)
+                    {
+                        UIElementDic.Add(type, new UIElement()
+                        {
+                            isCache = attribute.isCache,
+                            prefab = Resources.Load<GameObject>(attribute.resPath),
+                            layerNum = attribute.layerNum
+                        });
+                    }
                 }
             }
         }

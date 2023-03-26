@@ -13,7 +13,7 @@ public static class EventManager
     /// </summary>
     private interface IEventInfo 
     {
-        void Destory();
+        void Destroy();
     }
     /// <summary>
     /// 无参-事件信息
@@ -25,7 +25,7 @@ public static class EventManager
         {
             this.action = action;
         }
-        public void Destory()
+        public void Destroy()
         {
             action = null;
             this.ObjectPushPool();
@@ -42,7 +42,7 @@ public static class EventManager
         {
             this.action = action;
         }
-        public void Destory()
+        public void Destroy()
         {
             action = null;
             this.ObjectPushPool();
@@ -59,7 +59,7 @@ public static class EventManager
         {
             this.action = action;
         }
-        public void Destory()
+        public void Destroy()
         {
             action = null;
             this.ObjectPushPool();
@@ -76,7 +76,7 @@ public static class EventManager
         {
             this.action = action;
         }
-        public void Destory()
+        public void Destroy()
         {
             action = null;
             this.ObjectPushPool();
@@ -271,7 +271,7 @@ public static class EventManager
     {
         if (eventInfoDic.ContainsKey(eventName))
         {
-            eventInfoDic[eventName].Destory();
+            eventInfoDic[eventName].Destroy();
             eventInfoDic.Remove(eventName);
         }
     }
@@ -283,7 +283,7 @@ public static class EventManager
     {
         foreach (string eventName in eventInfoDic.Keys)
         {
-            eventInfoDic[eventName].Destory ();
+            eventInfoDic[eventName].Destroy ();
         }
         eventInfoDic.Clear();
     }

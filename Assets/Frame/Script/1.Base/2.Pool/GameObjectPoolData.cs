@@ -50,7 +50,8 @@ public class GameObjectPoolData
         if (parent == null)
         {
             //回归默认场景
-            SceneManager.MoveGameObjectToScene(obj, SceneManager.GetActiveScene());
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(obj, UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+
         }
         
         return obj;

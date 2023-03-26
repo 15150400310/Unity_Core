@@ -57,7 +57,7 @@ public class FrameEventListener : MonoBehaviour, IMouseEvent
             this.args = args;
         }
 
-        public void Destory()
+        public void Destroy()
         {
             this.action = null;
             this.args = null;
@@ -111,7 +111,7 @@ public class FrameEventListener : MonoBehaviour, IMouseEvent
                         if (args.ArrayEquals(eventList[i].args))
                         {
                             //移除
-                            eventList[i].Destory();
+                            eventList[i].Destroy();
                             eventList.RemoveAt(i);
                             return;
                         }
@@ -119,7 +119,7 @@ public class FrameEventListener : MonoBehaviour, IMouseEvent
                     else
                     {
                         //移除
-                        eventList[i].Destory();
+                        eventList[i].Destroy();
                         eventList.RemoveAt(i);
                         return;
                     }
@@ -134,7 +134,7 @@ public class FrameEventListener : MonoBehaviour, IMouseEvent
         {
             for (int i = 0; i < eventList.Count; i++)
             {
-                eventList[i].Destory();
+                eventList[i].Destroy();
             }
             eventList.Clear();
             this.ObjectPushPool();
@@ -148,9 +148,25 @@ public class FrameEventListener : MonoBehaviour, IMouseEvent
             }
         }
     }
+
+    /// <summary>
+    /// 枚举比较器
+    /// </summary>
+    private class FrameEventTypeEnumComparer : Singleton<FrameEventTypeEnumComparer>,IEqualityComparer<FrameEventType>
+    {
+        public bool Equals(FrameEventType x, FrameEventType y)
+        {
+            return x == y;
+        }
+
+        public int GetHashCode(FrameEventType obj)
+        {
+            return (int)obj;
+        }
+    }
     #endregion
 
-    private Dictionary<FrameEventType, IFrameEventListenerInfos> eventInfoDic = new Dictionary<FrameEventType, IFrameEventListenerInfos>();
+    private Dictionary<FrameEventType, IFrameEventListenerInfos> eventInfoDic = new Dictionary<FrameEventType, IFrameEventListenerInfos>(FrameEventTypeEnumComparer.Instance);
 
     #region 外部的访问
     /// <summary>
