@@ -19,7 +19,7 @@ public enum WindowResult
 public class UI_WindowBase : MonoBehaviour
 {
     //窗口类型
-    public Type type { get { return this.GetType(); } }
+    public Type Type { get { return this.GetType(); } }
 
     /// <summary>
     /// 初始化
@@ -43,6 +43,7 @@ public class UI_WindowBase : MonoBehaviour
     /// </summary>
     public virtual void Close()
     {
+        UIManager.Instance.Close(Type);
         CancelEventListener();
     }
 

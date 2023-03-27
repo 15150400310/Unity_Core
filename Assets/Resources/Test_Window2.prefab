@@ -77,7 +77,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 2
 --- !u!1 &6118485797144168576
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 474, y: -295}
+  m_AnchoredPosition: {x: -557, y: -320}
   m_SizeDelta: {x: 160, y: 180.29517}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4734683551850921231
@@ -286,9 +286,9 @@ GameObject:
   - component: {fileID: 6189894625908321816}
   - component: {fileID: 4527762729819206764}
   - component: {fileID: 5784559747930155983}
-  - component: {fileID: 5210673224571022184}
+  - component: {fileID: 7723735340811636749}
   m_Layer: 5
-  m_Name: Test_Window
+  m_Name: Test_Window2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5210673224571022184
+--- !u!114 &7723735340811636749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,6 +361,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8990454377536770754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a9429d0b8b3e14589af5c59f162c1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e435db9032b16a44b83ba40b6c92e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
