@@ -2,206 +2,210 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : ManagerBase<PoolManager>
+namespace Frame
 {
-    //根节点
-    [SerializeField]
-    private GameObject poolRootObj;
-    /// <summary>
-    /// GameObject容器
-    /// </summary>
-    public Dictionary<string, GameObjectPoolData> gameObjectPoolDic = new Dictionary<string, GameObjectPoolData>();
-    /// <summary>
-    /// 普通类容器
-    /// </summary>
-    public Dictionary<string, ObjectPoolData> objectPoolDic = new Dictionary<string, ObjectPoolData>();
-    public override void Init()
+    public class PoolManager : ManagerBase<PoolManager>
     {
-        base.Init();
-    }
+        //根节点
+        [SerializeField]
+        private GameObject poolRootObj;
+        /// <summary>
+        /// GameObject容器
+        /// </summary>
+        public Dictionary<string, GameObjectPoolData> gameObjectPoolDic = new Dictionary<string, GameObjectPoolData>();
+        /// <summary>
+        /// 普通类容器
+        /// </summary>
+        public Dictionary<string, ObjectPoolData> objectPoolDic = new Dictionary<string, ObjectPoolData>();
+        public override void Init()
+        {
+            base.Init();
+        }
 
-    #region GameObject对象相关操作
-    /// <summary>
-    /// 获取GameObject
-    /// </summary>
-    /// <typeparam name="T">需要的组件</typeparam>
-    public T GetGameObject<T>(GameObject prefab, Transform parent = null) where T : UnityEngine.Object
-    {
-        GameObject obj = GetGameObject(prefab, parent);
-        if (obj != null)
+        #region GameObject对象相关操作
+        /// <summary>
+        /// 获取GameObject
+        /// </summary>
+        /// <typeparam name="T">需要的组件</typeparam>
+        public T GetGameObject<T>(GameObject prefab, Transform parent = null) where T : UnityEngine.Object
         {
-            return obj.GetComponent<T>();
-        }
-        return null;
-    }
-
-    /// <summary>
-    /// 获取GameObject
-    /// </summary>
-    public GameObject GetGameObject(GameObject prefab, Transform parent = null)
-    {
-        GameObject obj = null;
-        string name = prefab.name;
-        //检查有没有这一层
-        if (CheckGameObjectCache(prefab))
-        {
-            obj = gameObjectPoolDic[name].GetObj(parent);
-        }
-        //没有的话实例化一个
-        else
-        {
-            //确保实例化后的游戏物体和预制体名称一致
-            obj = Instantiate(prefab, parent);
-            obj.name = name;
-        }
-        return obj;
-    }
-
-    /// <summary>
-    /// GameObject放进对象池
-    /// </summary>
-    public void PushGameObject(GameObject obj)
-    {
-        string name = obj.name;
-        //现在有没有这层
-        if (gameObjectPoolDic.ContainsKey(name))
-        {
-            gameObjectPoolDic[name].PushObj(obj);
-        }
-        else
-        {
-            gameObjectPoolDic.Add(name, new GameObjectPoolData(obj, poolRootObj));
-        }
-    }
-
-    /// <summary>
-    /// 检查有没有某一层对象池数据
-    /// </summary>
-    private bool CheckGameObjectCache(GameObject prefab)
-    {
-        string name = prefab.name;
-        return gameObjectPoolDic.ContainsKey(name) && gameObjectPoolDic[name].poolQueue.Count > 0;
-    }
-
-    /// <summary>
-    /// 检查缓存 如果成功 则加载游戏物体 不成功返回null
-    /// </summary>
-    public GameObject CheckCacheAndLoadGameObject(string path, Transform parent = null)
-    {
-        //通过路径最终预制体的名称
-        string[] pathSplit = path.Split('/');
-        string prefabName = pathSplit[pathSplit.Length - 1];
-        if (gameObjectPoolDic.ContainsKey(prefabName) && gameObjectPoolDic[prefabName].poolQueue.Count > 0)
-        {
-            return gameObjectPoolDic[prefabName].GetObj(parent);
-        }
-        else
-        {
+            GameObject obj = GetGameObject(prefab, parent);
+            if (obj != null)
+            {
+                return obj.GetComponent<T>();
+            }
             return null;
         }
-    }
-    #endregion
 
-    #region 普通对象相关操作
-    /// <summary>
-    /// 获取普通对象
-    /// </summary>
-    public T GetObject<T>() where T : class,new()
-    {
-        T obj;
-        if (CheckObjectCache<T>())
+        /// <summary>
+        /// 获取GameObject
+        /// </summary>
+        public GameObject GetGameObject(GameObject prefab, Transform parent = null)
         {
-            string name = typeof(T).FullName;
-            obj = (T)objectPoolDic[name].GetObj();
+            GameObject obj = null;
+            string name = prefab.name;
+            //检查有没有这一层
+            if (CheckGameObjectCache(prefab))
+            {
+                obj = gameObjectPoolDic[name].GetObj(parent);
+            }
+            //没有的话实例化一个
+            else
+            {
+                //确保实例化后的游戏物体和预制体名称一致
+                obj = Instantiate(prefab, parent);
+                obj.name = name;
+            }
             return obj;
         }
-        else
-        {
-            return new T();
-        }
-    }
 
-    /// <summary>
-    /// 普通类放进对象池
-    /// </summary>
-    /// <param name="obj"></param>
-    public void PushObject(object obj)
-    {
-        string name = obj.GetType().FullName;
-        //现在有没有这层
-        if (objectPoolDic.ContainsKey(name))
+        /// <summary>
+        /// GameObject放进对象池
+        /// </summary>
+        public void PushGameObject(GameObject obj)
         {
-            objectPoolDic[name].PushObj(obj);
-        }
-        else
-        {
-            objectPoolDic.Add(name, new ObjectPoolData(obj));
-        }
-    }
-
-    private bool CheckObjectCache<T>()
-    {
-        string name = typeof(T).FullName;
-        return objectPoolDic.ContainsKey(name) && objectPoolDic[name].poolQueue.Count > 0;
-    }
-    #endregion
-
-    #region 删除
-    /// <summary>
-    /// 删除全部
-    /// </summary>
-    /// <param name="clearGameObject">是否删除游戏物体</param>
-    /// <param name="clearCObject">是否删除C#对象</param>
-    public void Clear(bool clearGameObject = true, bool clearCObject = true)
-    {
-        if (clearGameObject)
-        {
-            for (int i = 0; i < poolRootObj.transform.childCount; i++)
+            string name = obj.name;
+            //现在有没有这层
+            if (gameObjectPoolDic.ContainsKey(name))
             {
-                Destroy(poolRootObj.transform.GetChild(0).gameObject);
+                gameObjectPoolDic[name].PushObj(obj);
             }
-            gameObjectPoolDic.Clear();
+            else
+            {
+                gameObjectPoolDic.Add(name, new GameObjectPoolData(obj, poolRootObj));
+            }
         }
-        
-        if (clearCObject)
+
+        /// <summary>
+        /// 检查有没有某一层对象池数据
+        /// </summary>
+        private bool CheckGameObjectCache(GameObject prefab)
         {
-            objectPoolDic.Clear();
+            string name = prefab.name;
+            return gameObjectPoolDic.ContainsKey(name) && gameObjectPoolDic[name].poolQueue.Count > 0;
         }
-    }
 
-    public void ClearAllGameObject()
-    {
-        Clear(true, false);
-    }
-    public void ClearGameObject(string prefabName)
-    {
-        Transform go = poolRootObj.transform.Find(prefabName);
-        if (go != null)
+        /// <summary>
+        /// 检查缓存 如果成功 则加载游戏物体 不成功返回null
+        /// </summary>
+        public GameObject CheckCacheAndLoadGameObject(string path, Transform parent = null)
         {
-            Destroy(go.gameObject);
-            gameObjectPoolDic.Remove(prefabName);
+            //通过路径最终预制体的名称
+            string[] pathSplit = path.Split('/');
+            string prefabName = pathSplit[pathSplit.Length - 1];
+            if (gameObjectPoolDic.ContainsKey(prefabName) && gameObjectPoolDic[prefabName].poolQueue.Count > 0)
+            {
+                return gameObjectPoolDic[prefabName].GetObj(parent);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region 普通对象相关操作
+        /// <summary>
+        /// 获取普通对象
+        /// </summary>
+        public T GetObject<T>() where T : class, new()
+        {
+            T obj;
+            if (CheckObjectCache<T>())
+            {
+                string name = typeof(T).FullName;
+                obj = (T)objectPoolDic[name].GetObj();
+                return obj;
+            }
+            else
+            {
+                return new T();
+            }
         }
 
-    }
-    public void ClearGameObject(GameObject prefab)
-    {
-        ClearGameObject(prefab.name);
-    }
+        /// <summary>
+        /// 普通类放进对象池
+        /// </summary>
+        /// <param name="obj"></param>
+        public void PushObject(object obj)
+        {
+            string name = obj.GetType().FullName;
+            //现在有没有这层
+            if (objectPoolDic.ContainsKey(name))
+            {
+                objectPoolDic[name].PushObj(obj);
+            }
+            else
+            {
+                objectPoolDic.Add(name, new ObjectPoolData(obj));
+            }
+        }
 
-    public void ClearAllObject()
-    {
-        Clear(false, true);
-    }
+        private bool CheckObjectCache<T>()
+        {
+            string name = typeof(T).FullName;
+            return objectPoolDic.ContainsKey(name) && objectPoolDic[name].poolQueue.Count > 0;
+        }
+        #endregion
 
-    public void ClearObject<T>()
-    {
-        objectPoolDic.Remove(typeof(T).FullName);
-    }
+        #region 删除
+        /// <summary>
+        /// 删除全部
+        /// </summary>
+        /// <param name="clearGameObject">是否删除游戏物体</param>
+        /// <param name="clearCObject">是否删除C#对象</param>
+        public void Clear(bool clearGameObject = true, bool clearCObject = true)
+        {
+            if (clearGameObject)
+            {
+                for (int i = 0; i < poolRootObj.transform.childCount; i++)
+                {
+                    Destroy(poolRootObj.transform.GetChild(0).gameObject);
+                }
+                gameObjectPoolDic.Clear();
+            }
 
-    public void ClearObject(Type type)
-    {
-        objectPoolDic.Remove(type.FullName);
+            if (clearCObject)
+            {
+                objectPoolDic.Clear();
+            }
+        }
+
+        public void ClearAllGameObject()
+        {
+            Clear(true, false);
+        }
+        public void ClearGameObject(string prefabName)
+        {
+            Transform go = poolRootObj.transform.Find(prefabName);
+            if (go != null)
+            {
+                Destroy(go.gameObject);
+                gameObjectPoolDic.Remove(prefabName);
+            }
+
+        }
+        public void ClearGameObject(GameObject prefab)
+        {
+            ClearGameObject(prefab.name);
+        }
+
+        public void ClearAllObject()
+        {
+            Clear(false, true);
+        }
+
+        public void ClearObject<T>()
+        {
+            objectPoolDic.Remove(typeof(T).FullName);
+        }
+
+        public void ClearObject(Type type)
+        {
+            objectPoolDic.Remove(type.FullName);
+        }
+        #endregion
+
     }
-    #endregion
 
 }

@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-/// <summary>
-/// UI元素的特性
-/// 每个UI窗口都应该添加
-/// </summary>
-public class UIElementAttribute : Attribute
+namespace Frame
 {
-    public bool isCache;
-    public string resPath;
-    public int layerNum;
-
-    public UIElementAttribute(bool isCache, string resPath, int layerNum)
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    /// <summary>
+    /// UI元素的特性
+    /// 每个UI窗口都应该添加
+    /// </summary>
+    public class UIElementAttribute : Attribute
     {
-        this.isCache = isCache;
-        this.resPath = resPath;
-        this.layerNum = layerNum;
+        public bool isCache;
+        public string resPath;
+        public int layerNum;
+
+        public UIElementAttribute(bool isCache, string resPath, int layerNum)
+        {
+            this.isCache = isCache;
+            this.resPath = resPath;
+            this.layerNum = layerNum;
+        }
     }
 }

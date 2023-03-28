@@ -1,23 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/// <summary>
-/// 单例模式的基类
-/// </summary>
-public class Singleton<T> where T : Singleton<T>, new()
+﻿namespace Frame
 {
-    private static T instance;
-
-    public static T Instance
+    /// <summary>
+    /// 单例模式的基类
+    /// </summary>
+    public abstract class Singleton<T> where T : Singleton<T>, new()
     {
-        get
+        private static T instance;
+
+        public static T Instance
         {
-            if (instance == null)
+            get
             {
-                instance = new T();
+                if (instance == null)
+                {
+                    instance = new T();
+                }
+                return instance;
             }
-            return instance;
         }
     }
 }
+

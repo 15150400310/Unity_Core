@@ -1,12 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SingletonMono<T> : MonoBehaviour where T : SingletonMono<T>
+namespace Frame
 {
-    public static T Instance;
-    protected virtual void Awake()
+    public abstract class SingletonMono<T> : MonoBehaviour where T : SingletonMono<T>
     {
-        Instance = this as T;
+        public static T Instance;
+        protected virtual void Awake()
+        {
+            Instance = this as T;
+        }
     }
 }
+
