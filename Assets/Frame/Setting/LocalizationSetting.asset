@@ -24,7 +24,7 @@ MonoBehaviour:
     - Name: dataBag
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.Dictionary`2[[System.String,
-        mscorlib],[LocalizationModel, Assembly-CSharp]], mscorlib]], mscorlib
+        mscorlib],[Frame.LocalizationModel, Assembly-CSharp]], mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
@@ -34,40 +34,40 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: "\u73A9\u5BB6"
+      Data: UI_MainMenuMainWindow
     - Name: $v
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LocalizationModel,
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
       Data: 1
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: HeroName
+      Data: Title
     - Name: $v
       Entry: 7
-      Data: 3|LocalizationModel, Assembly-CSharp
+      Data: 3|Frame.LocalizationModel, Assembly-CSharp
     - Name: contentDic
       Entry: 7
-      Data: 4|System.Collections.Generic.Dictionary`2[[LanguageType, Assembly-CSharp],[ILanguage_Content,
+      Data: 4|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[LanguageType, Assembly-CSharp]],
-        mscorlib
+      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -88,10 +88,10 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 6|L_Text, Assembly-CSharp
+      Data: 6|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
-      Data: "\u8D85\u7EA7\u82F1\u96C4"
+      Data: "\u4E50 \u56ED \u5C04 \u51FB"
     - Name: 
       Entry: 8
       Data: 
@@ -106,10 +106,375 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 7|L_Text, Assembly-CSharp
+      Data: 7|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
-      Data: SuperHero
+      Data: Park Shoot
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: NewGame_Button
+    - Name: $v
+      Entry: 7
+      Data: 8|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 9|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 10|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 11|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u65B0\u6E38\u620F"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 12|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: New Game
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Continue_Button
+    - Name: $v
+      Entry: 7
+      Data: 13|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 14|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 16|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u7EE7\u7EED\u6E38\u620F"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 17|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Continue
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Rank_Button
+    - Name: $v
+      Entry: 7
+      Data: 18|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 19|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 20|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 21|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u6392\u884C\u699C"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 22|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Rank
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Setting_Button
+    - Name: $v
+      Entry: 7
+      Data: 23|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 24|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 20
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 25|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u8BBE\u7F6E"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 26|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Setting
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Quit_Button
+    - Name: $v
+      Entry: 7
+      Data: 27|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 28|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 20
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 29|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u9000\u51FA\u6E38\u620F"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 30|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Quit
     - Name: 
       Entry: 8
       Data: 
@@ -142,14 +507,331 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: "\u767B\u9646\u754C\u9762"
+      Data: UI_NewGameWindow
     - Name: $v
       Entry: 7
-      Data: 8|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LocalizationModel,
+      Data: 31|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 9|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+      Data: 32|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Back_Button
+    - Name: $v
+      Entry: 7
+      Data: 33|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 34|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 35|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 36|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u8FD4\u56DE\u83DC\u5355"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 37|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Back
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Play_Button
+    - Name: $v
+      Entry: 7
+      Data: 38|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 39|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 40|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 41|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u8FDB\u5165\u6E38\u620F"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 42|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Enter Game
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UserName_Placeholder_Text
+    - Name: $v
+      Entry: 7
+      Data: 43|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 44|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 40
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 45|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u8BF7\u8F93\u5165\u6635\u79F0"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 46|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Please enter your name
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UserName_Text
+    - Name: $v
+      Entry: 7
+      Data: 47|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 48|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 40
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 49|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u6635\u79F0"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 50|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Name
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Tips
+    - Name: $v
+      Entry: 7
+      Data: 51|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 52|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
         mscorlib]], mscorlib
     - Name: 
       Entry: 8
@@ -162,18 +844,18 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Title
+      Data: CheckName
     - Name: $v
       Entry: 7
-      Data: 10|LocalizationModel, Assembly-CSharp
+      Data: 53|Frame.LocalizationModel, Assembly-CSharp
     - Name: contentDic
       Entry: 7
-      Data: 11|System.Collections.Generic.Dictionary`2[[LanguageType, Assembly-CSharp],[ILanguage_Content,
+      Data: 54|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 12|System.Collections.Generic.EnumEqualityComparer`1[[LanguageType, Assembly-CSharp]],
-        mscorlib
+      Data: 55|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -194,10 +876,10 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 13|L_Text, Assembly-CSharp
+      Data: 56|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
-      Data: "XX\u6E38\u620F"
+      Data: "\u8BF7\u8F93\u5165\u6635\u79F0"
     - Name: 
       Entry: 8
       Data: 
@@ -212,10 +894,116 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 14|L_Text, Assembly-CSharp
+      Data: 57|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
-      Data: XXGame
+      Data: Please enter your name
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_SaveWindow
+    - Name: $v
+      Entry: 7
+      Data: 58|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 59|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: SaveItem_DelButtonText
+    - Name: $v
+      Entry: 7
+      Data: 60|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 61|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 62|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 63|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u5220\u9664"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 64|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Delete
     - Name: 
       Entry: 8
       Data: 

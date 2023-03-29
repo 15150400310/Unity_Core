@@ -50,8 +50,14 @@ namespace Frame
                 EventManager.Clear();
                 Instance.InitManager();
                 Instance.GameSetting.InitForEditor();
-            }
 
+                //场景中的所有窗口都进行一次Show
+                UI_WindowBase[] windows = Instance.transform.GetComponentsInChildren<UI_WindowBase>();
+                foreach (UI_WindowBase win in windows)
+                {
+                    win.OnShow();
+                }
+            }
         }
 #endif
     }

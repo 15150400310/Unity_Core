@@ -40,6 +40,8 @@ namespace Frame
         /// </summary>
         public Dictionary<Type, UIElement> UIElementDic { get { return GameRoot.Instance.GameSetting.UIElementDic; } }
 
+        private const string TipsLocalizationPackName = "Tips";
+
         [SerializeField]
         private UILayer[] UILayers;
 
@@ -50,6 +52,11 @@ namespace Frame
         public void AddTips(string info)
         {
             UITpis.AddTips(info);
+        }
+
+        public void AddTipsByLocalization(string tipsKeyName)
+        {
+            UITpis.AddTips(LocalizationManager.Instance.GetContent<L_Text>(TipsLocalizationPackName, tipsKeyName).content);
         }
         /// <summary>
         /// 显示窗口
@@ -123,6 +130,7 @@ namespace Frame
                 //缓存则隐藏
                 if (info.isCache)
                 {
+                    info.objInstance.transform.SetAsFirstSibling();
                     info.objInstance.gameObject.SetActive(false);
                 }
                 //不缓存则销毁

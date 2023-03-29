@@ -7,7 +7,6 @@ namespace Frame
     /// <summary>
     /// 逻辑管理器基类
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public abstract class LogicManagerBase<T> : SingletonMono<T> where T : LogicManagerBase<T>
     {
         /// <summary>
