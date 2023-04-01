@@ -152,7 +152,7 @@ namespace Frame
             var enumerator = UIElementDic.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                enumerator.Current.Value.objInstance.Close();
+                enumerator.Current.Value.objInstance?.Close();
             }
         }
     }

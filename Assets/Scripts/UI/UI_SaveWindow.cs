@@ -1,5 +1,4 @@
 ﻿using Frame;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +24,6 @@ public class UI_SaveWindow : UI_WindowBase
         {
             UpdateAllSaveItem();
         }
-        
     }
 
     public override void Close()

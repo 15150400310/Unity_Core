@@ -348,10 +348,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 875907174, guid: 680a3fab4da12474dbd10844ed6399e1, type: 3}
-      propertyPath: m_Volume
-      value: 0.064
-      objectReference: {fileID: 0}
     - target: {fileID: 4592443846277332302, guid: 680a3fab4da12474dbd10844ed6399e1,
         type: 3}
       propertyPath: m_Name
@@ -411,16 +407,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375282090663210361, guid: 680a3fab4da12474dbd10844ed6399e1,
-        type: 3}
-      propertyPath: bgVolume
-      value: 0.064
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375282090663210361, guid: 680a3fab4da12474dbd10844ed6399e1,
-        type: 3}
-      propertyPath: effectVolume
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 680a3fab4da12474dbd10844ed6399e1, type: 3}

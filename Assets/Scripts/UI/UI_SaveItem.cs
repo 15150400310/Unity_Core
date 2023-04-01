@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Frame;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Frame;
 
 [Pool]
 public class UI_SaveItem : MonoBehaviour
@@ -19,6 +17,7 @@ public class UI_SaveItem : MonoBehaviour
     private static Color selectColor = new Color(0,0.6f,1,0.6f);
 
     private SaveItem saveItem;
+    private UserData userData;
 
     private void Start()
     {
@@ -27,18 +26,24 @@ public class UI_SaveItem : MonoBehaviour
         this.OnMouseExit(MouseExit);
         this.OnClick(Click);
     }
+
+    private void OnEnable()
+    {
+        Del_Button_Text.FrameLocalSet("UI_SaveWindow", "SaveItem_DelButtonText");
+    }
     public void Init(SaveItem saveItem)
     {
         this.saveItem = saveItem;
-
         Time_Text.text = saveItem.lastSaveTime.ToString("g");
-        //TODO:用户数据
-        Del_Button_Text.FrameLocalSet("UI_SaveWindow", "SaveItem_DelButtonText");
+        userData = SaveManager.LoadObject<UserData>(saveItem);
+        UserName_Text.text = userData.userName;
+        Score_Text.text = userData.score.ToString();
     }
 
     public void Destroy()
     {
         saveItem = null;
+        userData = null;
         this.GameObjectPushPool();
     }
 
@@ -62,6 +67,6 @@ public class UI_SaveItem : MonoBehaviour
 
     private void Click(PointerEventData pointerEventData, params object[] args)
     {
-        EventManager.EventTrigger<SaveItem>("EnterGame",saveItem);
+        EventManager.EventTrigger<SaveItem,UserData>("EnterGame",saveItem,userData);
     }
 }

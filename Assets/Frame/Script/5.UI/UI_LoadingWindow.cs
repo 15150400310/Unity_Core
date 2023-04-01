@@ -48,6 +48,7 @@ namespace Frame
         /// <param name="progressValue"></param>
         private void UpdateProgress(float progressValue)
         {
+            Debug.Log((int)(progressValue * 100) + "%");
             progress_Text.text = (int)(progressValue * 100) + "%";
             fill_Image.fillAmount = progressValue;
         }

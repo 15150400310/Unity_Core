@@ -41,6 +41,7 @@ namespace Frame
                 yield return ao.progress;
             }
             EventManager.EventTrigger<float>("LoadingSceneProgress", 1f);
+            EventManager.EventTrigger("LoadSceneSucceed");
             callBack?.Invoke();
         }
     }
