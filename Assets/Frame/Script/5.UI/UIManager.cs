@@ -126,6 +126,7 @@ namespace Frame
                 {
                     return;
                 }
+                info.objInstance.OnClose();
 
                 //缓存则隐藏
                 if (info.isCache)
@@ -152,7 +153,11 @@ namespace Frame
             var enumerator = UIElementDic.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                enumerator.Current.Value.objInstance?.Close();
+                if (enumerator.Current.Value.objInstance != null 
+                    && enumerator.Current.Value.objInstance.gameObject.activeInHierarchy==true)
+                {
+                    enumerator.Current.Value.objInstance?.Close();
+                }
             }
         }
     }

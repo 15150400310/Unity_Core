@@ -7,7 +7,10 @@ namespace Frame
         public static T Instance;
         protected virtual void Awake()
         {
-            Instance = this as T;
+            if (Instance  == null)
+            {
+                Instance = this as T;
+            }
         }
     }
 }

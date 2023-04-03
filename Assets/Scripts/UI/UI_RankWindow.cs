@@ -27,10 +27,10 @@ public class UI_RankWindow : UI_WindowBase
         }
     }
 
-    public override void Close()
+    public override void OnClose()
     {
         AudioManager.Instance.PlayOnShot("Audio/Button", UIManager.Instance);
-        base.Close();
+        base.OnClose();
     }
 
     protected override void RegisterEventListener()

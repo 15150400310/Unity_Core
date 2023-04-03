@@ -126,17 +126,17 @@ namespace Frame
             AddEventListener(com, FrameEventType.OnCollisionExit, action, args);
         }
 
-        public static void OnCollisionEnter2D(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnCollisionEnter2D(this Component com, Action<Collision2D, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnCollisionEnter2D, action, args);
         }
 
-        public static void OnCollisionStay2D(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnCollisionStay2D(this Component com, Action<Collision2D, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnCollisionStay2D, action, args);
         }
 
-        public static void OnCollisionExit2D(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnCollisionExit2D(this Component com, Action<Collision2D, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnCollisionExit2D, action, args);
         }
@@ -156,79 +156,79 @@ namespace Frame
             RemoveEventListener(com, FrameEventType.OnCollisionExit, action, checkArgs, args);
         }
 
-        public static void RemoveCollisionEnter2D(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveCollisionEnter2D(this Component com, Action<Collision2D, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnCollisionEnter2D, action, checkArgs, args);
         }
 
-        public static void RemoveCollisionStay2D(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveCollisionStay2D(this Component com, Action<Collision2D, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnCollisionStay2D, action, checkArgs, args);
         }
 
-        public static void RemoveCollisionExit2D(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveCollisionExit2D(this Component com, Action<Collision2D, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnCollisionExit2D, action, checkArgs, args);
         }
         #endregion
 
         #region 触发相关事件
-        public static void OnTriggerEnter(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnTriggerEnter(this Component com, Action<Collider, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnTriggerEnter, action, args);
         }
 
-        public static void OnTriggerStay(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnTriggerStay(this Component com, Action<Collider, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnTriggerStay, action, args);
         }
 
-        public static void OnTriggerExit(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnTriggerExit(this Component com, Action<Collider, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnTriggerExit, action, args);
         }
 
-        public static void OnTriggerEnter2D(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnTriggerEnter2D(this Component com, Action<Collider2D, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnTriggerEnter2D, action, args);
         }
 
-        public static void OnTriggerStay2D(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnTriggerStay2D(this Component com, Action<Collider2D, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnTriggerStay2D, action, args);
         }
 
-        public static void OnTriggerExit2D(this Component com, Action<Collision, object[]> action, params object[] args)
+        public static void OnTriggerExit2D(this Component com, Action<Collider2D, object[]> action, params object[] args)
         {
             AddEventListener(com, FrameEventType.OnTriggerExit2D, action, args);
         }
 
-        public static void RemoveTriggerEnter(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveTriggerEnter(this Component com, Action<Collider, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnTriggerEnter, action, checkArgs, args);
         }
 
-        public static void RemoveTriggerStay(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveTriggerStay(this Component com, Action<Collider, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnTriggerStay, action, checkArgs, args);
         }
 
-        public static void RemoveTriggerExit(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveTriggerExit(this Component com, Action<Collider, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnTriggerExit, action, checkArgs, args);
         }
 
-        public static void RemoveTriggerEnter2D(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveTriggerEnter2D(this Component com, Action<Collider2D, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnTriggerEnter2D, action, checkArgs, args);
         }
 
-        public static void RemoveTriggerStay2D(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveTriggerStay2D(this Component com, Action<Collider2D, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnTriggerStay2D, action, checkArgs, args);
         }
 
-        public static void RemoveTriggerExit2D(this Component com, Action<Collision, object[]> action, bool checkArgs = false, params object[] args)
+        public static void RemoveTriggerExit2D(this Component com, Action<Collider2D, object[]> action, bool checkArgs = false, params object[] args)
         {
             RemoveEventListener(com, FrameEventType.OnTriggerExit2D, action, checkArgs, args);
         }

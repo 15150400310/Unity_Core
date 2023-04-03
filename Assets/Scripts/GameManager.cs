@@ -34,4 +34,20 @@ public class GameManager : SingletonMono<GameManager>
         this.SaveItem = saveItem;
         this.UserData = userData;
     }
+
+    /// <summary>
+    /// 暂停游戏
+    /// </summary>
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    /// <summary>
+    /// 继续游戏
+    /// </summary>
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
+    }
 }

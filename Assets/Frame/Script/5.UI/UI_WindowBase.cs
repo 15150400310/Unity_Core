@@ -41,9 +41,16 @@ namespace Frame
         /// <summary>
         /// 关闭
         /// </summary>
-        public virtual void Close()
+        public void Close()
         {
             UIManager.Instance.Close(Type);
+        }
+
+        /// <summary>
+        /// 关闭时额外执行的内容
+        /// </summary>
+        public virtual void OnClose()
+        {
             CancelEventListener();
         }
 
