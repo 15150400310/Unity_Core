@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  HP: 0
-  Attack: 0
+  HP: 200
+  Attack: 20
   ModelPrefab: {fileID: 5030645071561653432, guid: 1a1b3e4e042d8844cbc619b0492f29c8,
     type: 3}

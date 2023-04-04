@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Frame;
+using System.Collections;
 using UnityEngine;
-using Frame;
 
 [Pool]
 public class Bullet : MonoBehaviour
@@ -28,7 +27,7 @@ public class Bullet : MonoBehaviour
         //TODO：攻击AI
         if (other.gameObject.tag == "Monster")
         {
-
+            other.GetComponent<Monster_Controller>().GetHit(attack);
         }
 
         

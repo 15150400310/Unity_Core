@@ -50,4 +50,31 @@ public class GameManager : SingletonMono<GameManager>
     {
         Time.timeScale = 1;
     }
+
+    /// <summary>
+    /// 再来一局
+    /// </summary>
+    public void RepeatGame()
+    {
+        UIManager.Instance.Show<UI_LoadingWindow>();
+        SceneManager.LoadSceneAsync("Game");
+    }
+
+    /// <summary>
+    /// 更新分数
+    /// </summary>
+    /// <param name="score"></param>
+    public void UpdateScore(int score)
+    {
+        //本次得分必须超过当前最大分，才有保存意义
+        if (score>UserData.score)
+        {
+            //保存当前得分
+            UserData.score = score;
+            SaveManager.SaveObject(UserData, SaveItem);
+            //排名有变化
+            EventManager.EventTrigger("UpdateSaveItem");
+            EventManager.EventTrigger("UpdateRankItem");
+        }
+    }
 }

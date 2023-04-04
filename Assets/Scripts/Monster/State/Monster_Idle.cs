@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Frame;
+using System.Collections;
 using UnityEngine;
-using Frame;
 
 public class Monster_Idle : Monster_StateBase
 {

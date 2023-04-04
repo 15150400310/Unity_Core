@@ -16,10 +16,13 @@ public class Monster_View : MonoBehaviour
     private bool canHit;
     private int attackValue;
 
+    private void Start()
+    {
+        weaponCollider.OnTriggerEnter(OnWeaponColliderTriggerEnter);
+    }
     public void Init(int attackValue)
     {
         this.attackValue = attackValue;
-        weaponCollider.OnTriggerEnter(OnWeaponColliderTriggerEnter);
     }
 
     private void OnWeaponColliderTriggerEnter(Collider other,params object[] args)
@@ -33,9 +36,18 @@ public class Monster_View : MonoBehaviour
         {
             canHit = false;
             //让玩家受伤
+            Player_Controller.Instance.GetHit(attackValue);
             AudioManager.Instance.PlayOnShot("Audio/Monster/拳头击中", transform);
 
         }
+    }
+
+    /// <summary>
+    /// 放进对象池
+    /// </summary>
+    public void Destroy()
+    {
+        this.GameObjectPushPool();
     }
 
     #region 动画事件
@@ -57,6 +69,11 @@ public class Monster_View : MonoBehaviour
     private void EndAttack()
     {
         EventManager.EventTrigger("EndAttack_" + transform.parent.GetInstanceID());
+    }
+
+    private void EndGetHit()
+    {
+        EventManager.EventTrigger("EndGetHit_" + transform.parent.GetInstanceID());
     }
     #endregion
 }

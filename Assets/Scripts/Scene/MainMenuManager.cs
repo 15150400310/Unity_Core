@@ -10,6 +10,7 @@ public class MainMenuManager : LogicManagerBase<MainMenuManager>
 {
     private void Start()
     {
+        GameManager.Instance.ContinueGame();
         UIManager.Instance.CloseAll();
         //播放背景音乐
         AudioManager.Instance.PlayBGAudio("Audio/BG/Menu");
@@ -55,6 +56,5 @@ public class MainMenuManager : LogicManagerBase<MainMenuManager>
         UIManager.Instance.Show<UI_LoadingWindow>();
         GameManager.Instance.EnterGame(saveItem, userData);
         SceneManager.LoadSceneAsync("Game");
-        
     }
 }

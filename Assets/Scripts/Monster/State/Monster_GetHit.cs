@@ -1,9 +1,13 @@
-﻿using Frame;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Frame;
 
-public class Monster_Attack : Monster_StateBase
+public class Monster_GetHit : Monster_StateBase
 {
     //用于接收怪物View层的动画事件
     private int monsterEventID;
+
     public override void Init(IStateMachineOwner owner, int stateType, StateMachine stateMachine)
     {
         base.Init(owner, stateType, stateMachine);
@@ -15,19 +19,20 @@ public class Monster_Attack : Monster_StateBase
         //修改移动状态
         SetMoveState(false);
         //播放动画
-        PlayAnimation("Attack");
-        //监听动画的攻击结束
-        EventManager.AddEventListener("EndAttack_" + monsterEventID, OnAttackOver);
+        PlayAnimation("GetHit");
+        //监听动画的受伤结束
+        EventManager.AddEventListener("EndGetHit_" + monsterEventID, OnEndGetHit);
     }
+
     public override void Exit()
     {
-        EventManager.RemoveEventListener("EndAttack_" + monsterEventID, OnAttackOver);
+        EventManager.RemoveEventListener("EndGetHit_" + monsterEventID, OnEndGetHit);
     }
 
     /// <summary>
     /// 当攻击结束时执行的逻辑
     /// </summary>
-    private void OnAttackOver()
+    private void OnEndGetHit()
     {
         stateMachine.ChangeState<Monster_Follow>((int)MonsterStateType.Follow);
     }

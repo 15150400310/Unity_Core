@@ -12,11 +12,26 @@ public class MonsterManager : LogicManagerBase<MonsterManager>
     [SerializeField] private Transform[] targets;
     private int monsterCount = 0;
     private LV_Config config;
-    
+
     private void Start()
     {
         config = ConfigManager.Instance.GetConfig<LV_Config>("LV");
         InvokeRepeating("CreateMonster", config.CreateMonsterInterval, 1);
+    }
+
+    protected override void RegisterEventListener()
+    {
+        EventManager.AddEventListener("MonsterDie", OnMonsterDie);
+    }
+
+    protected override void CancelEventListener()
+    {
+        EventManager.RemoveEventListener("MonsterDie", OnMonsterDie);
+    }
+
+    private void OnMonsterDie()
+    {
+        monsterCount -= 1;
     }
 
     /// <summary>
@@ -52,13 +67,5 @@ public class MonsterManager : LogicManagerBase<MonsterManager>
         return targets[Random.Range(0, targets.Length)].position;
     }
 
-    protected override void CancelEventListener()
-    {
-
-    }
-
-    protected override void RegisterEventListener()
-    {
-
-    }
+    
 }

@@ -27,6 +27,16 @@ public class Player_Controller : SingletonMono<Player_Controller>
     private float bulletMovePower;
     private int attack;
     private bool canShoot = true;
+    private int hp;
+    public int HP 
+    {
+        get => hp;
+        set
+        {
+            hp = value;
+            EventManager.EventTrigger("UpdateHp", hp);
+        }
+    }
     #endregion
     private int groundLayerMask;
     public PlayerState PlayerState
@@ -37,16 +47,20 @@ public class Player_Controller : SingletonMono<Player_Controller>
             playerState = value;
             switch (playerState)
             {
-                case PlayerState.Normal:
-                    break;
                 case PlayerState.Reload:
                     StartCoroutine(ReLoad());
                     break;
                 case PlayerState.GetHit:
+                    //重置上一次受伤带来的效果
+                    StopCoroutine(DoGetHit());
+                    animator.SetBool("GetHit", false);
+                    //开始这一次受伤带来的效果
+                    animator.SetBool("GetHit", true);
+                    StartCoroutine(DoGetHit());
                     break;
                 case PlayerState.Die:
-                    break;
-                default:
+                    EventManager.EventTrigger("GameOver");
+                    animator.SetTrigger("Die");
                     break;
             }
         }
@@ -54,11 +68,13 @@ public class Player_Controller : SingletonMono<Player_Controller>
 
     public void Init(Player_Config config)
     {
+        HP = config.HP;
         moveSpeed = config.MoveSpeed;
         maxBulletNum = config.MaxBulletNum;
         currentBulletNum = maxBulletNum;
         shootInterval = config.ShootInterval;
         bulletMovePower = config.BulletMovePower;
+        attack = config.Attack;
     }
 
     private void Start()
@@ -88,12 +104,6 @@ public class Player_Controller : SingletonMono<Player_Controller>
                 break;
             case PlayerState.Reload:
                 Move();
-                break;
-            case PlayerState.GetHit:
-                break;
-            case PlayerState.Die:
-                break;
-            default:
                 break;
         }
     }
@@ -164,5 +174,34 @@ public class Player_Controller : SingletonMono<Player_Controller>
         PlayerState = PlayerState.Normal;
         currentBulletNum = maxBulletNum;
         EventManager.EventTrigger<int, int>("UpdateBullet", currentBulletNum, maxBulletNum);
+    }
+
+    public void GetHit(int damage)
+    {
+        if (hp==0)
+        {
+            return;
+        }
+        hp -= damage;
+        if (hp<=0)
+        {
+            HP = 0;
+            PlayerState = PlayerState.Die;
+        }
+        else
+        {
+            HP = hp;
+            PlayerState = PlayerState.GetHit;
+        }
+    }
+
+    private IEnumerator DoGetHit()
+    {
+        yield return new WaitForSeconds(0.2f);
+        animator.SetBool("GetHit", false);
+        if (PlayerState==PlayerState.GetHit)
+        {
+            PlayerState = PlayerState.Normal;
+        }
     }
 }

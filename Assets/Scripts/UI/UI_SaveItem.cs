@@ -52,7 +52,7 @@ public class UI_SaveItem : MonoBehaviour
         AudioManager.Instance.PlayOnShot("Audio/Button", UIManager.Instance);
         SaveManager.DeleteSaveItem(saveItem);
         EventManager.EventTrigger("UpdateSaveItem");
-        //TODO:更新排行榜
+        EventManager.EventTrigger("UpdateRankItem");
     }
 
     private void MouseEnter(PointerEventData pointerEventData,params object[] args)

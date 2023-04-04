@@ -5,18 +5,30 @@ using Frame;
 
 public class LVManager : LogicManagerBase<LVManager>
 {
+    private int score = 0;
+    public int Score 
+    { 
+        get => score;
+        set 
+        {
+            score = value;
+            EventManager.EventTrigger<int>("UpdateScore", score);
+        }
+    }
 
     public Transform TempObjRoot;
+
+    private bool isActiveSettingWindow = false;
     private void Start()
     {
         UIManager.Instance.CloseAll();
         //打开游戏主窗口
         UIManager.Instance.Show<UI_GameMainWindow>();
+        Score = 0;
         //初始化玩家
         Player_Controller.Instance.Init(ConfigManager.Instance.GetConfig<Player_Config>("Player"));
     }
 
-    private bool isActiveSettingWindow = false;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -33,16 +45,34 @@ public class LVManager : LogicManagerBase<LVManager>
             {
                 UIManager.Instance.Close<UI_SettingWindow>();
                 GameManager.Instance.ContinueGame();
-                
+
             }
         }
     }
 
-    protected override void CancelEventListener()
-    {
-    }
-
     protected override void RegisterEventListener()
     {
+        EventManager.AddEventListener("MonsterDie", OnMonsterDie);
+        EventManager.AddEventListener("GameOver", OnGameOver);
     }
+
+    protected override void CancelEventListener()
+    {
+        EventManager.RemoveEventListener("MonsterDie", OnMonsterDie);
+        EventManager.RemoveEventListener("GameOver", OnGameOver);
+    }
+
+    private void OnMonsterDie()
+    {
+        Score += 1;
+    }
+
+    private void OnGameOver()
+    {
+        //更新存档
+        GameManager.Instance.UpdateScore(score);
+        //打开结果页面
+        UIManager.Instance.Show<UI_ResultWindow>().Init(score);
+    }
+
 }
