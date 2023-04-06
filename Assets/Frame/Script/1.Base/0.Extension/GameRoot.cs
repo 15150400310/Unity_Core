@@ -52,8 +52,8 @@ namespace Frame
                 Instance.GameSetting.InitForEditor();
 
                 //场景中的所有窗口都进行一次Show
-                UI_WindowBase[] windows = Instance.transform.GetComponentsInChildren<UI_WindowBase>();
-                foreach (UI_WindowBase win in windows)
+                UIPanelBase[] windows = Instance.transform.GetComponentsInChildren<UIPanelBase>();
+                foreach (UIPanelBase win in windows)
                 {
                     win.OnShow();
                 }

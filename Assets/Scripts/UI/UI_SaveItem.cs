@@ -6,12 +6,14 @@ using UnityEngine.UI;
 [Pool]
 public class UI_SaveItem : MonoBehaviour
 {
-    [SerializeField] private Image BG;
-    [SerializeField] private Text UserName_Text;
-    [SerializeField] private Text Time_Text;
-    [SerializeField] private Text Score_Text;
-    [SerializeField] private Text Del_Button_Text;
-    [SerializeField] private Button Del_Button;
+    [SerializeField] private Text userName_Text;
+    [SerializeField] private Text time_Text;
+    [SerializeField] private Text score_Text;
+    [SerializeField] private Text del_Button_Text;
+
+    [SerializeField] private Image bg;
+    
+    [SerializeField] private Button del_Button;
 
     private static Color normalColor = new Color(0,0,0,0.6f);
     private static Color selectColor = new Color(0,0.6f,1,0.6f);
@@ -21,7 +23,9 @@ public class UI_SaveItem : MonoBehaviour
 
     private void Start()
     {
-        Del_Button.onClick.AddListener(Del_ButtonClick);
+        
+
+        del_Button.onClick.AddListener(Del_ButtonClick);
         this.OnMouseEnter(MouseEnter);
         this.OnMouseExit(MouseExit);
         this.OnClick(Click);
@@ -29,15 +33,26 @@ public class UI_SaveItem : MonoBehaviour
 
     private void OnEnable()
     {
-        Del_Button_Text.FrameLocalSet("UI_SaveWindow", "SaveItem_DelButtonText");
+        userName_Text = this.GetUI<Text>("UserName_Text");
+        time_Text = this.GetUI<Text>("Time_Text");
+        score_Text = this.GetUI<Text>("Score/Score_Text");
+        del_Button_Text = this.GetUI<Text>("Del_Button/Del_Button_Text");
+
+        bg = this.GetUI<Image>("");
+
+        del_Button = this.GetUI<Button>("Del_Button");
+
+        del_Button_Text.FrameLocalSet("UI_SaveWindow", "SaveItem_DelButton_Text");
     }
     public void Init(SaveItem saveItem)
     {
+        
+
         this.saveItem = saveItem;
-        Time_Text.text = saveItem.lastSaveTime.ToString("g");
+        time_Text.text = saveItem.lastSaveTime.ToString("g");
         userData = SaveManager.LoadObject<UserData>(saveItem);
-        UserName_Text.text = userData.userName;
-        Score_Text.text = userData.score.ToString();
+        userName_Text.text = userData.userName;
+        score_Text.text = userData.score.ToString();
     }
 
     public void Destroy()
@@ -57,12 +72,12 @@ public class UI_SaveItem : MonoBehaviour
 
     private void MouseEnter(PointerEventData pointerEventData,params object[] args)
     {
-        BG.color = selectColor;
+        bg.color = selectColor;
     }
 
     private void MouseExit(PointerEventData pointerEventData, params object[] args)
     {
-        BG.color = normalColor;
+        bg.color = normalColor;
     }
 
     private void Click(PointerEventData pointerEventData, params object[] args)

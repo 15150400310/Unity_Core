@@ -67,7 +67,7 @@ namespace Frame
             //获取所有程序集
             System.Reflection.Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
 
-            Type baseType = typeof(UI_WindowBase);
+            Type baseType = typeof(UIPanelBase);
             //遍历程序集
             foreach (System.Reflection.Assembly assembly in asms)
             {

@@ -7,12 +7,17 @@ using UnityEngine.UI;
 namespace Frame
 {
     [UIElement(true, "UI/UI_LoadingWindow", 4)]
-    public class UI_LoadingWindow : UI_WindowBase
+    public class UI_LoadingWindow : UIPanelBase/*, ILoadPage*/
     {
-        [SerializeField]
-        private Text progress_Text;
-        [SerializeField]
-        private Image fill_Image;
+        [SerializeField] private Text progress_Text;
+
+        [SerializeField] private Image fill_Image;
+
+        public override void Init()
+        {
+            progress_Text = GetUI<Text>("Progress/Progress_Text");
+            fill_Image = GetUI<Image>("Progress/Fill_Image");
+        }
 
         public override void OnShow()
         {
@@ -52,6 +57,17 @@ namespace Frame
             progress_Text.text = (int)(progressValue * 100) + "%";
             fill_Image.fillAmount = progressValue;
         }
+
+        //public void OnProgressChange(float _curProgress)
+        //{
+        //    fill_Image.fillAmount = _curProgress;
+        //    progress_Text.text = (int)(_curProgress * 100) + "%";
+        //}
+
+        //public void OnLoadingComplete()
+        //{
+        //    Close();
+        //}
     }
 }
 

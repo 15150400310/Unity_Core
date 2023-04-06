@@ -34,7 +34,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 6
+      Data: 7
     - Name: 
       Entry: 7
       Data: 
@@ -91,7 +91,7 @@ MonoBehaviour:
       Data: 6|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
-      Data: "\u4E50 \u56ED \u5C04 \u51FB"
+      Data: "\u5C04\u51FBDEMO"
     - Name: 
       Entry: 8
       Data: 
@@ -109,7 +109,7 @@ MonoBehaviour:
       Data: 7|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
-      Data: Park Shoot
+      Data: Shoot DEMO
     - Name: 
       Entry: 8
       Data: 
@@ -133,7 +133,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: NewGame_Button
+      Data: NewGame_Button_Text
     - Name: $v
       Entry: 7
       Data: 8|Frame.LocalizationModel, Assembly-CSharp
@@ -210,7 +210,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Continue_Button
+      Data: Continue_Button_Text
     - Name: $v
       Entry: 7
       Data: 13|Frame.LocalizationModel, Assembly-CSharp
@@ -287,7 +287,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Rank_Button
+      Data: Rank_Button_Text
     - Name: $v
       Entry: 7
       Data: 18|Frame.LocalizationModel, Assembly-CSharp
@@ -364,7 +364,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Setting_Button
+      Data: Setting_Button_Text
     - Name: $v
       Entry: 7
       Data: 23|Frame.LocalizationModel, Assembly-CSharp
@@ -431,7 +431,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Quit_Button
+      Data: Quit_Button_Text
     - Name: $v
       Entry: 7
       Data: 27|Frame.LocalizationModel, Assembly-CSharp
@@ -527,7 +527,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Back_Button
+      Data: Back_Button_Text
     - Name: $v
       Entry: 7
       Data: 33|Frame.LocalizationModel, Assembly-CSharp
@@ -604,7 +604,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Play_Button
+      Data: Play_Button_Text
     - Name: $v
       Entry: 7
       Data: 38|Frame.LocalizationModel, Assembly-CSharp
@@ -950,7 +950,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: SaveItem_DelButtonText
+      Data: SaveItem_DelButton_Text
     - Name: $v
       Entry: 7
       Data: 60|Frame.LocalizationModel, Assembly-CSharp
@@ -1050,13 +1050,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: GlobalVolume
+      Data: GlobalVolume_Text
     - Name: $v
       Entry: 7
       Data: 67|Frame.LocalizationModel, Assembly-CSharp
@@ -1133,7 +1133,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: BGVolume
+      Data: BGVolume_Text
     - Name: $v
       Entry: 7
       Data: 72|Frame.LocalizationModel, Assembly-CSharp
@@ -1200,7 +1200,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: EffectVolume
+      Data: EffectVolume_Text
     - Name: $v
       Entry: 7
       Data: 76|Frame.LocalizationModel, Assembly-CSharp
@@ -1267,7 +1267,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: LanguageType
+      Data: LanguageType_Text
     - Name: $v
       Entry: 7
       Data: 80|Frame.LocalizationModel, Assembly-CSharp
@@ -1330,50 +1330,21 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: UI_ResultWindow
+      Data: Quit_Button_Text
     - Name: $v
       Entry: 7
-      Data: 84|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 85|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Back_Button_Text
-    - Name: $v
-      Entry: 7
-      Data: 86|Frame.LocalizationModel, Assembly-CSharp
+      Data: 84|Frame.LocalizationModel, Assembly-CSharp
     - Name: contentDic
       Entry: 7
-      Data: 87|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+      Data: 85|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 88|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+      Data: 86|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -1395,7 +1366,113 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 89|Frame.L_Text, Assembly-CSharp
+      Data: 87|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u9000\u51FA\u6E38\u620F"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 88|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Quit
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_ResultWindow
+    - Name: $v
+      Entry: 7
+      Data: 89|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 90|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Back_Button_Text
+    - Name: $v
+      Entry: 7
+      Data: 91|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 92|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 93|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 94|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: "\u8FD4\u56DE\u83DC\u5355"
@@ -1413,7 +1490,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 90|Frame.L_Text, Assembly-CSharp
+      Data: 95|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: Back
@@ -1443,14 +1520,14 @@ MonoBehaviour:
       Data: Re_Button_Text
     - Name: $v
       Entry: 7
-      Data: 91|Frame.LocalizationModel, Assembly-CSharp
+      Data: 96|Frame.LocalizationModel, Assembly-CSharp
     - Name: contentDic
       Entry: 7
-      Data: 92|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+      Data: 97|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
-      Data: 88
+      Data: 93
     - Name: 
       Entry: 12
       Data: 2
@@ -1462,7 +1539,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 93|Frame.L_Text, Assembly-CSharp
+      Data: 98|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: "\u518D\u6765\u4E00\u5C40"
@@ -1480,7 +1557,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 94|Frame.L_Text, Assembly-CSharp
+      Data: 99|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: Try Again
@@ -1510,14 +1587,14 @@ MonoBehaviour:
       Data: Score
     - Name: $v
       Entry: 7
-      Data: 95|Frame.LocalizationModel, Assembly-CSharp
+      Data: 100|Frame.LocalizationModel, Assembly-CSharp
     - Name: contentDic
       Entry: 7
-      Data: 96|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+      Data: 101|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
-      Data: 88
+      Data: 93
     - Name: 
       Entry: 12
       Data: 2
@@ -1529,7 +1606,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 97|Frame.L_Text, Assembly-CSharp
+      Data: 102|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: "\u5F97\u5206\uFF1A"
@@ -1547,10 +1624,116 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 98|Frame.L_Text, Assembly-CSharp
+      Data: 103|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: 'Score:'
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_GameMainWindow
+    - Name: $v
+      Entry: 7
+      Data: 104|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 105|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Reload_Button_Text
+    - Name: $v
+      Entry: 7
+      Data: 106|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 107|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 108|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 109|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u6362\u5F39"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 110|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Reload
     - Name: 
       Entry: 8
       Data: 

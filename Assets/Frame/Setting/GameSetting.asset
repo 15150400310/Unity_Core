@@ -18,8 +18,10 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 4516497651295411124, guid: c175595de88e8ef47a60fd3a14598374, type: 3}
     - {fileID: 1437633535310827598, guid: 81437e947720b6546b0629a8ee889639, type: 3}
+    - {fileID: 0}
     - {fileID: 6358561468592691830, guid: 5e17c01ace97a1f4cb88aa9e2d6fcae9, type: 3}
     - {fileID: 3977397066245291684, guid: 26aea3bedf0cca440ae251fbed0aff44, type: 3}
+    - {fileID: 8048843354025685400, guid: 94a38e9e929350443ac5dbc094d3c671, type: 3}
     - {fileID: 8048843354025685400, guid: 521dc3172306de04aa894a7e636def71, type: 3}
     - {fileID: 8048843354025685400, guid: be0b9cd20ffc3b84ea84da05fc9278af, type: 3}
     - {fileID: 1059927545382937035, guid: d1e56177774a7004880917e229f98100, type: 3}
@@ -41,7 +43,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
       Data: 
@@ -50,7 +52,7 @@ MonoBehaviour:
       Data: 2|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: Bullet, Assembly-CSharp
+      Data: Monster_Controller, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -68,7 +70,7 @@ MonoBehaviour:
       Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: UI_RankItem, Assembly-CSharp
+      Data: Bullet, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -86,7 +88,7 @@ MonoBehaviour:
       Data: 4|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: UI_SaveItem, Assembly-CSharp
+      Data: UI_RankItem, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -102,6 +104,24 @@ MonoBehaviour:
     - Name: $k
       Entry: 7
       Data: 5|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UI_SaveItem, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: $v
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 7
+      Data: 6|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: Frame.StateMachine, Assembly-CSharp
@@ -122,24 +142,24 @@ MonoBehaviour:
       Data: 
     - Name: UIElementDic
       Entry: 7
-      Data: 6|System.Collections.Generic.Dictionary`2[[System.Type, mscorlib],[Frame.UIElement,
+      Data: 7|System.Collections.Generic.Dictionary`2[[System.Type, mscorlib],[Frame.UIElement,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 7|System.Collections.Generic.ObjectEqualityComparer`1[[System.Type, mscorlib]],
+      Data: 8|System.Collections.Generic.ObjectEqualityComparer`1[[System.Type, mscorlib]],
         mscorlib
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 12
-      Data: 7
+      Data: 8
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 7
-      Data: 8|System.RuntimeType, mscorlib
+      Data: 9|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UI_GameMainWindow, Assembly-CSharp
@@ -148,7 +168,7 @@ MonoBehaviour:
       Data: 
     - Name: $v
       Entry: 7
-      Data: 9|Frame.UIElement, Assembly-CSharp
+      Data: 10|Frame.UIElement, Assembly-CSharp
     - Name: isCache
       Entry: 5
       Data: true
@@ -172,7 +192,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 7
-      Data: 10|System.RuntimeType, mscorlib
+      Data: 11|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UI_MainMenuMainWindow, Assembly-CSharp
@@ -181,7 +201,7 @@ MonoBehaviour:
       Data: 
     - Name: $v
       Entry: 7
-      Data: 11|Frame.UIElement, Assembly-CSharp
+      Data: 12|Frame.UIElement, Assembly-CSharp
     - Name: isCache
       Entry: 5
       Data: true
@@ -192,8 +212,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: objInstance
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -205,7 +225,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 7
-      Data: 12|System.RuntimeType, mscorlib
+      Data: 13|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UI_NewGameWindow, Assembly-CSharp
@@ -214,40 +234,7 @@ MonoBehaviour:
       Data: 
     - Name: $v
       Entry: 7
-      Data: 13|Frame.UIElement, Assembly-CSharp
-    - Name: isCache
-      Entry: 5
-      Data: true
-    - Name: prefab
-      Entry: 10
-      Data: 2
-    - Name: layerNum
-      Entry: 3
-      Data: 1
-    - Name: objInstance
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 7
-      Data: 14|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: UI_RankWindow, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: $v
-      Entry: 7
-      Data: 15|Frame.UIElement, Assembly-CSharp
+      Data: 14|Frame.UIElement, Assembly-CSharp
     - Name: isCache
       Entry: 5
       Data: true
@@ -271,16 +258,16 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 7
-      Data: 16|System.RuntimeType, mscorlib
+      Data: 15|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: UI_SaveWindow, Assembly-CSharp
+      Data: UI_RankWindow, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
     - Name: $v
       Entry: 7
-      Data: 17|Frame.UIElement, Assembly-CSharp
+      Data: 16|Frame.UIElement, Assembly-CSharp
     - Name: isCache
       Entry: 5
       Data: true
@@ -304,16 +291,16 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 7
-      Data: 18|System.RuntimeType, mscorlib
+      Data: 17|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: UI_SettingWindow, Assembly-CSharp
+      Data: UI_ResultWindow, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
     - Name: $v
       Entry: 7
-      Data: 19|Frame.UIElement, Assembly-CSharp
+      Data: 18|Frame.UIElement, Assembly-CSharp
     - Name: isCache
       Entry: 5
       Data: true
@@ -337,7 +324,73 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 7
-      Data: 20|System.RuntimeType, mscorlib
+      Data: 19|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UI_SaveWindow, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: $v
+      Entry: 7
+      Data: 20|Frame.UIElement, Assembly-CSharp
+    - Name: isCache
+      Entry: 5
+      Data: true
+    - Name: prefab
+      Entry: 10
+      Data: 6
+    - Name: layerNum
+      Entry: 3
+      Data: 1
+    - Name: objInstance
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 7
+      Data: 21|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UI_SettingWindow, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: $v
+      Entry: 7
+      Data: 22|Frame.UIElement, Assembly-CSharp
+    - Name: isCache
+      Entry: 5
+      Data: true
+    - Name: prefab
+      Entry: 10
+      Data: 7
+    - Name: layerNum
+      Entry: 3
+      Data: 1
+    - Name: objInstance
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 7
+      Data: 23|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: Frame.UI_LoadingWindow, Assembly-CSharp
@@ -346,13 +399,13 @@ MonoBehaviour:
       Data: 
     - Name: $v
       Entry: 7
-      Data: 21|Frame.UIElement, Assembly-CSharp
+      Data: 24|Frame.UIElement, Assembly-CSharp
     - Name: isCache
       Entry: 5
       Data: true
     - Name: prefab
       Entry: 10
-      Data: 6
+      Data: 8
     - Name: layerNum
       Entry: 3
       Data: 4

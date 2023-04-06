@@ -8,8 +8,9 @@ using UnityEngine;
 /// </summary>
 public class MainMenuManager : LogicManagerBase<MainMenuManager>
 {
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         GameManager.Instance.ContinueGame();
         UIManager.Instance.CloseAll();
         //播放背景音乐
@@ -20,6 +21,7 @@ public class MainMenuManager : LogicManagerBase<MainMenuManager>
 
     protected override void RegisterEventListener()
     {
+        
         EventManager.AddEventListener<string>("CreateNewSaveAndEnterGame", CreateNewSaveAndEnterGame);
         EventManager.AddEventListener<SaveItem,UserData>("EnterGame", EnterGame);
     }
@@ -56,5 +58,10 @@ public class MainMenuManager : LogicManagerBase<MainMenuManager>
         UIManager.Instance.Show<UI_LoadingWindow>();
         GameManager.Instance.EnterGame(saveItem, userData);
         SceneManager.LoadSceneAsync("Game");
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
     }
 }

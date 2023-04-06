@@ -19,8 +19,9 @@ public class LVManager : LogicManagerBase<LVManager>
     public Transform TempObjRoot;
 
     private bool isActiveSettingWindow = false;
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         UIManager.Instance.CloseAll();
         //打开游戏主窗口
         UIManager.Instance.Show<UI_GameMainWindow>();
@@ -33,20 +34,7 @@ public class LVManager : LogicManagerBase<LVManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isActiveSettingWindow = !isActiveSettingWindow;
-            //暂停游戏，打开设置窗口
-            if (isActiveSettingWindow)
-            {
-                GameManager.Instance.PauseGame();
-                UIManager.Instance.Show<UI_SettingWindow>().InitOnGame();
-            }
-            //继续游戏，关闭设置窗口
-            else
-            {
-                UIManager.Instance.Close<UI_SettingWindow>();
-                GameManager.Instance.ContinueGame();
-
-            }
+            ShowSettingWindow();
         }
     }
 
@@ -75,4 +63,26 @@ public class LVManager : LogicManagerBase<LVManager>
         UIManager.Instance.Show<UI_ResultWindow>().Init(score);
     }
 
+    public void ShowSettingWindow()
+    {
+        isActiveSettingWindow = !isActiveSettingWindow;
+        //暂停游戏，打开设置窗口
+        if (isActiveSettingWindow)
+        {
+            GameManager.Instance.PauseGame();
+            UIManager.Instance.Show<UI_SettingWindow>().InitOnGame();
+        }
+        //继续游戏，关闭设置窗口
+        else
+        {
+            UIManager.Instance.Close<UI_SettingWindow>();
+            GameManager.Instance.ContinueGame();
+
+        }
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
 }

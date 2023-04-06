@@ -13,8 +13,9 @@ public class MonsterManager : LogicManagerBase<MonsterManager>
     private int monsterCount = 0;
     private LV_Config config;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         config = ConfigManager.Instance.GetConfig<LV_Config>("LV");
         InvokeRepeating("CreateMonster", config.CreateMonsterInterval, 1);
     }
@@ -67,5 +68,8 @@ public class MonsterManager : LogicManagerBase<MonsterManager>
         return targets[Random.Range(0, targets.Length)].position;
     }
 
-    
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
 }

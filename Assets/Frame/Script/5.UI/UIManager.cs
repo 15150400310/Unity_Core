@@ -63,7 +63,7 @@ namespace Frame
         /// </summary>
         /// <typeparam name="T">窗口类型</typeparam>
         /// <param name="layer">层级 -1等于不设置</param>
-        public T Show<T>(int layer = -1) where T : UI_WindowBase
+        public T Show<T>(int layer = -1) where T : UIPanelBase
         {
 
             return Show(typeof(T), layer) as T;
@@ -74,7 +74,7 @@ namespace Frame
         /// </summary>
         /// <typeparam name="T">窗口类型</typeparam>
         /// <param name="layer">层级 -1等于不设置</param>
-        public UI_WindowBase Show(Type type, int layer = -1)
+        public UIPanelBase Show(Type type, int layer = -1)
         {
             if (UIElementDic.ContainsKey(type))
             {
@@ -91,7 +91,7 @@ namespace Frame
                 }
                 else
                 {
-                    UI_WindowBase window = ResManager.InstantiateForPrefab(info.prefab, UILayers[layerNum].root).GetComponent<UI_WindowBase>();
+                    UIPanelBase window = ResManager.InstantiateForPrefab(info.prefab, UILayers[layerNum].root).GetComponent<UIPanelBase>();
                     info.objInstance = window;
                     window.Init();
                     window.OnShow();

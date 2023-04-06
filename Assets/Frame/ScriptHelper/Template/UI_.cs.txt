@@ -1,0 +1,69 @@
+﻿/*******************************************************************************
+* 类 名 称：#ScriptName#
+* 创建日期：#NowTime#
+* 作者名称：#Author#
+* 功能描述：
+* 备注：
+******************************************************************************/
+using Frame;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+/// <summary>
+/// 
+/// </summary>
+[UIElement(true, "UI/#ScriptName#", 0)]
+public class #ScriptName# : UIPanelBase
+{
+    private const string LocalSetPackName = "#ScriptName#";
+    /// <summary>
+    /// 仅在首次打开时调用一次
+    /// </summary>
+    public override void Init()
+    {
+
+    }
+
+    /// <summary>
+    /// 注册事件
+    /// </summary>
+    protected override void RegisterEventListener()
+    {
+
+    }
+
+    /// <summary>
+    /// 取消事件
+    /// </summary>
+    protected override void CancelEventListener()
+    {
+
+    }
+
+    /// <summary>
+    /// 切换语言设置
+    /// </summary>
+    protected override void OnUpdateLanguage()
+    {
+
+    }
+
+    /// <summary>
+    /// 每次打开面板时调用
+    /// </summary>
+    public override void OnShow()
+    {
+        base.OnShow();
+    }
+
+    /// <summary>
+    /// 每次退出面板时调用
+    /// </summary>
+    public override void OnClose()
+    {
+        base.OnClose();
+    }
+
+}

@@ -2,31 +2,56 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[UIElement(true, "UI/SettingWindow", 1)]
-public class UI_SettingWindow : UI_WindowBase
+[UIElement(true, "UI/UI_SettingWindow", 1)]
+public class UI_SettingWindow : UIPanelBase
 {
-    [SerializeField] private Button Close_Button;
-    [SerializeField] private Button Quit_Button;
-    [SerializeField] private Text GlobalVolume_Text;
-    [SerializeField] private Text BGVolume_Text;
-    [SerializeField] private Text EffectVolume_Text;
-    [SerializeField] private Text LanguageType_Text;
-
-    [SerializeField] private Slider GlobalVolume_Slider;
-    [SerializeField] private Slider BGVolume_Slider;
-    [SerializeField] private Slider EffectVolume_Slider;
-    [SerializeField] private Dropdown LanguageType_Dropdown;
-
     private const string LocalSetPackName = "UI_SettingWindow";
+
+    [SerializeField] private Text globalVolume_Text;
+    [SerializeField] private Text bgVolume_Text;
+    [SerializeField] private Text effectVolume_Text;
+    [SerializeField] private Text languageType_Text;
+    [SerializeField] private Text quit_Button_Text;
+
+    [SerializeField] private Button close_Button;
+    [SerializeField] private Button setting_Button;
+    [SerializeField] private Button quit_Button;
+    
+    [SerializeField] private Slider globalVolume_Slider;
+    [SerializeField] private Slider bgVolume_Slider;
+    [SerializeField] private Slider effectVolume_Slider;
+
+    [SerializeField] private Dropdown languageType_Dropdown;
 
     public override void Init()
     {
-        Close_Button.onClick.AddListener(Close);
-        Quit_Button.onClick.AddListener(Quit_ButtonClick);
-        GlobalVolume_Slider.onValueChanged.AddListener(GlobalVolume_Slider_ValueChanged);
-        BGVolume_Slider.onValueChanged.AddListener(BGVolume_Slider_ValueChanged);
-        EffectVolume_Slider.onValueChanged.AddListener(EffectVolume_Slider_ValueChanged);
-        LanguageType_Dropdown.onValueChanged.AddListener(LanguageType_Dropdown_ValueChanged);
+        globalVolume_Text = GetUI<Text>("GlobalVolume");
+        bgVolume_Text = GetUI<Text>("BGVolume");
+        effectVolume_Text = GetUI<Text>("EffectVolume");
+        languageType_Text = GetUI<Text>("LanguageType");
+        quit_Button_Text = GetUI<Text>("Quit_Button/Text");
+
+        close_Button = GetUI<Button>("Close_Button");
+        setting_Button = GetUI<Button>("Setting_Button");
+        quit_Button = GetUI<Button>("Quit_Button");
+
+        globalVolume_Slider = GetUI<Slider>("GlobalVolume/Slider");
+        bgVolume_Slider = GetUI<Slider>("BGVolume/Slider");
+        effectVolume_Slider = GetUI<Slider>("EffectVolume/Slider");
+
+        languageType_Dropdown = GetUI<Dropdown>("LanguageType/Dropdown");
+
+        close_Button.onClick.AddListener(Close);
+        setting_Button.onClick.AddListener(Setting_ButtonClick);
+        quit_Button.onClick.AddListener(Quit_ButtonClick);
+        
+        globalVolume_Slider.onValueChanged.AddListener(GlobalVolume_Slider_ValueChanged);
+        bgVolume_Slider.onValueChanged.AddListener(BGVolume_Slider_ValueChanged);
+        effectVolume_Slider.onValueChanged.AddListener(EffectVolume_Slider_ValueChanged);
+        languageType_Dropdown.onValueChanged.AddListener(LanguageType_Dropdown_ValueChanged);
+
+        quit_Button.Hide();
+        setting_Button.Hide();
     }
 
     /// <summary>
@@ -34,25 +59,33 @@ public class UI_SettingWindow : UI_WindowBase
     /// </summary>
     public void InitOnGame()
     {
-        Close_Button.gameObject.SetActive(false);
-        Quit_Button.gameObject.SetActive(true);
+        close_Button.Hide();
+        quit_Button.Show();
     }
 
     public override void OnShow()
     {
         base.OnShow();
-        GlobalVolume_Slider.value = GameManager.Instance.UserSetting.GlobalVolume;
-        BGVolume_Slider.value = GameManager.Instance.UserSetting.BGVolume;
-        EffectVolume_Slider.value = GameManager.Instance.UserSetting.EffectVolume;
-        LanguageType_Dropdown.value = (int)GameManager.Instance.UserSetting.LanguageType;
+        globalVolume_Slider.value = GameManager.Instance.UserSetting.GlobalVolume;
+        bgVolume_Slider.value = GameManager.Instance.UserSetting.BGVolume;
+        effectVolume_Slider.value = GameManager.Instance.UserSetting.EffectVolume;
+        languageType_Dropdown.value = (int)GameManager.Instance.UserSetting.LanguageType;
+#if UNITY_ANDROID
+        setting_Button.Show();
+#endif
     }
 
     public override void OnClose()
     {
         AudioManager.Instance.PlayOnShot("Audio/Button", UIManager.Instance);
-        Close_Button.gameObject.SetActive(true);
-        Quit_Button.gameObject.SetActive(false);
+        close_Button.Show();
+        quit_Button.Hide();
         base.OnClose();
+    }
+
+    private void Setting_ButtonClick()
+    {
+        LVManager.Instance.ShowSettingWindow();
     }
 
     private void Quit_ButtonClick()
@@ -64,10 +97,11 @@ public class UI_SettingWindow : UI_WindowBase
 
     protected override void OnUpdateLanguage()
     {
-        GlobalVolume_Text.FrameLocalSet(LocalSetPackName, "GlobalVolume");
-        BGVolume_Text.FrameLocalSet(LocalSetPackName, "BGVolume");
-        EffectVolume_Text.FrameLocalSet(LocalSetPackName, "EffectVolume");
-        LanguageType_Text.FrameLocalSet(LocalSetPackName, "LanguageType");
+        globalVolume_Text.FrameLocalSet(LocalSetPackName, "GlobalVolume_Text");
+        bgVolume_Text.FrameLocalSet(LocalSetPackName, "BGVolume_Text");
+        effectVolume_Text.FrameLocalSet(LocalSetPackName, "EffectVolume_Text");
+        languageType_Text.FrameLocalSet(LocalSetPackName, "LanguageType_Text");
+        quit_Button_Text.FrameLocalSet(LocalSetPackName, "Quit_Button_Text");
     }
 
     private void GlobalVolume_Slider_ValueChanged(float value)

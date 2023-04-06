@@ -4,30 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using Frame;
 
-[UIElement(true, "UI/ResultWindow", 1)]
-public class UI_ResultWindow : UI_WindowBase
+[UIElement(true, "UI/UI_ResultWindow", 1)]
+public class UI_ResultWindow : UIPanelBase
 {
-    [SerializeField] private Text Score_Text;
-    [SerializeField] private Button Back_Button;
-    [SerializeField] private Button Re_Button;
-    [SerializeField] private Text Back_Button_Text;
-    [SerializeField] private Text Re_Button_Text;
-
     private const string LocalSetPackName = "UI_ResultWindow";
+
+    [SerializeField] private Text score_Text;
+    [SerializeField] private Text back_Button_Text;
+    [SerializeField] private Text re_Button_Text;
+
+    [SerializeField] private Button back_Button;
+    [SerializeField] private Button re_Button;
 
     public override void Init()
     {
-        Back_Button.onClick.AddListener(Back_ButtonClick);
-        Re_Button.onClick.AddListener(Re_ButtonClick);
+        score_Text = GetUI<Text>("Score_Text");
+        back_Button_Text = GetUI<Text>("Back_Button/Text");
+        re_Button_Text = GetUI<Text>("Re_Button/Text");
+
+        back_Button = GetUI<Button>("Back_Button");
+        re_Button = GetUI<Button>("Re_Button");
+
+        back_Button.onClick.AddListener(Back_ButtonClick);
+        re_Button.onClick.AddListener(Re_ButtonClick);
     }
     protected override void OnUpdateLanguage()
     {
-        Back_Button_Text.FrameLocalSet(LocalSetPackName, "Back_Button_Text");
-        Re_Button_Text.FrameLocalSet(LocalSetPackName, "Re_Button_Text");
+        back_Button_Text.FrameLocalSet(LocalSetPackName, "Back_Button_Text");
+        re_Button_Text.FrameLocalSet(LocalSetPackName, "Re_Button_Text");
     }
     public void Init(int score)
     {
-        Score_Text.text = LocalizationManager.Instance.GetContent<L_Text>(LocalSetPackName, "Score").content + score.ToString();
+        score_Text.text = LocalizationManager.Instance.GetContent<L_Text>(LocalSetPackName, "Score").content + score.ToString();
         GameManager.Instance.PauseGame();
     }
 

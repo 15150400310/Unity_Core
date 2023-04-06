@@ -4,18 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-[UIElement(true, "UI/RankWindow", 1)]
-public class UI_RankWindow : UI_WindowBase
+[UIElement(true, "UI/UI_RankWindow", 1)]
+public class UI_RankWindow : UIPanelBase
 {
-    [SerializeField] private Button Close_Button;
-    [SerializeField] private Transform ItemParent;
+    [SerializeField] private Button close_Button;
+    [SerializeField] private Transform itemParent;
+
     private List<UI_RankItem> UI_RankItemList = new List<UI_RankItem>();
 
     private bool wantUpdate = true;
 
     public override void Init()
     {
-        Close_Button.onClick.AddListener(Close);
+        close_Button = GetUI<Button>("Close_Button");
+        itemParent = GetTransform("ViewPort/Content");
+
+        close_Button.onClick.AddListener(Close);
     }
 
     public override void OnShow()
@@ -78,7 +82,7 @@ public class UI_RankWindow : UI_WindowBase
         //实例化所有的Item
         for (int i = 0; i < userDatas.Count; i++)
         {
-            UI_RankItem item = ResManager.Load<UI_RankItem>("UI/RankItem", ItemParent);
+            UI_RankItem item = ResManager.Load<UI_RankItem>("UI/RankItem", itemParent);
             item.Init(userDatas[i],i+1);
             UI_RankItemList.Add(item);
         }

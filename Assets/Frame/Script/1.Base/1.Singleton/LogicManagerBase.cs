@@ -19,12 +19,12 @@ namespace Frame
         /// </summary>
         protected abstract void CancelEventListener();
 
-        protected virtual void OnEnable()
+        protected virtual void Start()
         {
             RegisterEventListener();
         }
 
-        protected virtual void OnDisable()
+        protected virtual void OnDestroy()
         {
             CancelEventListener();
         }

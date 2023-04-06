@@ -1,0 +1,33 @@
+﻿/*******************************************************************************
+* 类 名 称：#ScriptName#
+* 创建日期：#NowTime#
+* 作者名称：#Author#
+* 功能描述：
+* 备注：
+******************************************************************************/
+using Frame;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+/// <summary>
+/// 
+/// </summary>
+public class #ScriptName# : LogicManagerBase<#ScriptName#>
+{
+    private void Start()
+    {
+
+    }
+
+    protected override void RegisterEventListener()
+    {
+
+    }
+
+    protected override void CancelEventListener()
+    {
+
+    }
+
+}

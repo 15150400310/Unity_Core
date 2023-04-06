@@ -18,7 +18,7 @@ namespace Frame
         /// 这个元素的窗口对象
         /// </summary>
         [HideInInspector]
-        public UI_WindowBase objInstance;
+        public UIPanelBase objInstance;
     }
 }
 

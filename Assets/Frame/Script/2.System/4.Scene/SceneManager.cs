@@ -4,6 +4,18 @@ using UnityEngine;
 
 namespace Frame
 {
+    //public interface ILoadPage
+    //{
+    //    /// <summary>
+    //    /// 当进度条变动时调用
+    //    /// </summary>
+    //    /// <param name="_curProgress">当前加载进度（0=>1）</param>
+    //    void OnProgressChange(float _curProgress);
+    //    /// <summary>
+    //    /// 当加载完时调用
+    //    /// </summary>
+    //    void OnLoadingComplete();
+    //}
     /// <summary>
     /// 场景管理器
     /// </summary>
@@ -44,6 +56,72 @@ namespace Frame
             EventManager.EventTrigger("LoadSceneSucceed");
             callBack?.Invoke();
         }
+        
+
+        //private static float loadingSpeed = 3;
+        //private static bool startLoading = false;
+        //private static float targetValue;
+        //private static AsyncOperation operation;
+        //private static ILoadPage loadPage;
+
+        ///// <summary>
+        ///// 异步加载场景
+        ///// </summary>
+        ///// <param name="sceneName">场景名称</param>
+        ///// <param name="panelName">加载面板名称</param>
+        ///// <param name="onFinish">加载结束后执行的事儿</param>
+        //public static void LoadScene(string sceneName, string panelName, Action onFinish = null)
+        //{
+        //    loadPage = null;
+        //    targetValue = 0;
+        //    float panelLoadTime = 1;
+        //    UIPanelBase uIPanelBase = UI.Show<UI_LoadingWindow>();
+        //    loadPage = uIPanelBase.GetComponent<ILoadPage>();
+        //    //panelLoadTime = uIPanelBase.uIPanelEffectBase.showDuration;
+        //    startLoading = true;
+        //    GameRoot.Instance.StartCoroutine(WaitToLoad(panelLoadTime, sceneName, onFinish));
+        //}
+        //static IEnumerator WaitToLoad(float time, string sceneName, Action onFinish = null)
+        //{
+        //    yield return new WaitForSeconds(time);
+        //    operation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+        //    GameRoot.Instance.StartCoroutine(LoadIE(onFinish));
+        //    GameRoot.Instance.StartCoroutine(AsyncLoading());
+        //}
+        //static IEnumerator AsyncLoading()
+        //{
+        //    operation.allowSceneActivation = false;
+        //    yield return operation;
+        //}
+        //static IEnumerator LoadIE(Action onFinsh = null)
+        //{
+        //    while (startLoading)
+        //    {
+        //        if (operation.progress < 0.9f)
+        //        {
+        //            targetValue = Mathf.Lerp(targetValue, operation.progress, Time.deltaTime * loadingSpeed);
+        //        }
+        //        else
+        //        {
+        //            targetValue = Mathf.Lerp(targetValue, 1, Time.deltaTime * loadingSpeed);
+        //            if (targetValue >= 0.99f)
+        //            {
+        //                operation.allowSceneActivation = true;
+        //                targetValue = 1;
+        //                while (!operation.isDone)
+        //                {
+        //                    yield return new WaitForEndOfFrame();
+        //                }
+        //                loadPage.OnProgressChange(targetValue);
+        //                loadPage.OnLoadingComplete();
+        //                onFinsh?.Invoke();
+        //                startLoading = false;
+        //            }
+        //        }
+        //        loadPage.OnProgressChange(targetValue);
+        //        yield return new WaitForFixedUpdate();
+        //    }
+        //}
     }
 }
 

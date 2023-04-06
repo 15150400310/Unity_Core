@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[UIElement(true, "UI/SaveWindow", 1)]
-public class UI_SaveWindow : UI_WindowBase
+[UIElement(true, "UI/UI_SaveWindow", 1)]
+public class UI_SaveWindow : UIPanelBase
 {
-    [SerializeField] private Button Close_Button;
-    [SerializeField] private Transform ItemParent;
+    [SerializeField] private Button close_Button;
+    [SerializeField] private Transform itemParent;
+
     private List<UI_SaveItem> UI_SaveItemList = new List<UI_SaveItem>();
 
     private bool wantUpdate = true;
 
     public override void Init()
     {
-        Close_Button.onClick.AddListener(Close);
+        close_Button = GetUI<Button>("Close_Button");
+        itemParent = GetTransform("ViewPort/Content");
+
+        close_Button.onClick.AddListener(Close);
     }
 
     public override void OnShow()
@@ -64,7 +68,7 @@ public class UI_SaveWindow : UI_WindowBase
         List<SaveItem> saveItems = SaveManager.GetAllSaveItemByUpdateTime();
         for (int i = 0; i < saveItems.Count; i++)
         {
-            UI_SaveItem item = ResManager.Load<UI_SaveItem>("UI/SaveItem", ItemParent);
+            UI_SaveItem item = ResManager.Load<UI_SaveItem>("UI/SaveItem", itemParent);
             item.Init(saveItems[i]);
             UI_SaveItemList.Add(item);
         }
