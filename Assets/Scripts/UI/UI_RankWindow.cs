@@ -39,7 +39,7 @@ public class UI_RankWindow : UIPanelBase
 
     protected override void RegisterEventListener()
     {
-        base.RegisterEventListener();
+        //base.RegisterEventListener();
         EventManager.AddEventListener("UpdateRankItem", UpdateRankItemFlag);
     }
 

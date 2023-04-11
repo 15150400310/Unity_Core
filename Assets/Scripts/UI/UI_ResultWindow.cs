@@ -12,21 +12,26 @@ public class UI_ResultWindow : UIPanelBase
     [SerializeField] private Text score_Text;
     [SerializeField] private Text back_Button_Text;
     [SerializeField] private Text re_Button_Text;
+    [SerializeField] private Text ads_Button_Text;
 
     [SerializeField] private Button back_Button;
     [SerializeField] private Button re_Button;
+    [SerializeField] private Button ads_Button;
 
     public override void Init()
     {
         score_Text = GetUI<Text>("Score_Text");
         back_Button_Text = GetUI<Text>("Back_Button/Text");
         re_Button_Text = GetUI<Text>("Re_Button/Text");
+        ads_Button_Text = GetUI<Text>("Ads_Button/Text");
 
         back_Button = GetUI<Button>("Back_Button");
         re_Button = GetUI<Button>("Re_Button");
+        ads_Button = GetUI<Button>("Ads_Button");
 
         back_Button.onClick.AddListener(Back_ButtonClick);
         re_Button.onClick.AddListener(Re_ButtonClick);
+        ads_Button.onClick.AddListener(Ads_ButtonClick);
     }
     protected override void OnUpdateLanguage()
     {
@@ -51,5 +56,13 @@ public class UI_ResultWindow : UIPanelBase
         //再次加载当前场景进行游戏
         GameManager.Instance.ContinueGame();
         GameManager.Instance.RepeatGame();
+    }
+
+    private void Ads_ButtonClick()
+    {
+        AdsManager.Instance.ShowRewardedAd(()=> {
+            EventManager.EventTrigger("Nirvana");
+        });
+        
     }
 }

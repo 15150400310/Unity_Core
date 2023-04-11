@@ -46,6 +46,10 @@ public class Player_Controller : SingletonMono<Player_Controller>
             EventManager.EventTrigger("UpdateHp", hp);
         }
     }
+
+    private Vector2 joyStickMoveDir;
+
+    private Vector2 joyStickFireDir;
     #endregion
     private int groundLayerMask;
     public PlayerState PlayerState
@@ -100,61 +104,54 @@ public class Player_Controller : SingletonMono<Player_Controller>
 
     private void Update()
     {
-#if UNITY_STANDALONE
         if (Time.deltaTime != 0)
         {
             StateOnUpdate();
         }
-#endif
     }
 
     private void StateOnUpdate()
     {
+#if UNITY_STANDALONE
         switch (PlayerState)
         {
             case PlayerState.Normal:
-                Move();
-                if (Input.GetMouseButton(0))
-                {
-                    Shoot();
-                }
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    Reload();
-                }
+                Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                Shoot();
+                Reload();
                 break;
             case PlayerState.Reload:
-                Move();
+                Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
                 break;
         }
+#elif UNITY_ANDROID
+        switch (PlayerState)
+        {
+            case PlayerState.Normal:
+                Move(joyStickMoveDir.x, joyStickMoveDir.y);
+                Shoot();
+                break;
+            case PlayerState.Reload:
+                Move(joyStickMoveDir.x, joyStickMoveDir.y);
+                break;
+        }
+#endif
+
     }
 
     private void JoystickMove(Vector2 dir)
     {
-        if (dir!=Vector2.zero)
-        {
-            Vector3 moveDir = new Vector3(dir.x, -5, dir.y);
-            characterController.Move(moveDir * moveSpeed * Time.deltaTime);
-        }
-        animator.SetFloat("MoveX", dir.x);
-        animator.SetFloat("MoveY", dir.y);
+        joyStickMoveDir = dir;
     }
 
     private void JoystickFire(Vector2 dir)
     {
-        if (dir != Vector2.zero)
-        {
-            Vector3 dir3 = new Vector3(dir.x, 0, dir.y);
-            Quaternion targetQuaternion = Quaternion.FromToRotation(Vector3.forward, dir3);
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetQuaternion, Time.deltaTime * 20f);
-            Shoot();
-        }
+        joyStickFireDir = dir;
     }
 
-    private void Move()
+    private void Move(float h,float v)
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+#if UNITY_STANDALONE
         Vector3 moveDir = new Vector3(h, -5, v);
         characterController.Move(moveDir * moveSpeed * Time.deltaTime);
 
@@ -173,11 +170,21 @@ public class Player_Controller : SingletonMono<Player_Controller>
 
         animator.SetFloat("MoveX", h);
         animator.SetFloat("MoveY", v);
+#elif UNITY_ANDROID
+        if (joyStickMoveDir != Vector2.zero)
+        {
+            Vector3 moveDir = new Vector3(h, -5, v);
+            characterController.Move(moveDir * moveSpeed * Time.deltaTime);
+        }
+        animator.SetFloat("MoveX", h);
+        animator.SetFloat("MoveY", v);
+#endif
     }
 
     private void Shoot()
     {
-        if (canShoot && CurrentBulletNum > 0)
+#if UNITY_STANDALONE
+        if (Input.GetMouseButton(0)&&canShoot && CurrentBulletNum > 0)
         {
             StartCoroutine(DoShoot());
         }
@@ -185,6 +192,19 @@ public class Player_Controller : SingletonMono<Player_Controller>
         {
             animator.SetBool("Shoot", false);
         }
+#elif UNITY_ANDROID
+        if (joyStickFireDir != Vector2.zero && canShoot && CurrentBulletNum > 0)
+        {
+            Vector3 dir3 = new Vector3(joyStickFireDir.x, 0, joyStickFireDir.y);
+            Quaternion targetQuaternion = Quaternion.FromToRotation(Vector3.forward, dir3);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetQuaternion, Time.deltaTime * 20f);
+            StartCoroutine(DoShoot());
+        }
+        else
+        {
+            animator.SetBool("Shoot", false);
+        }
+#endif
     }
 
     private IEnumerator DoShoot()
@@ -209,10 +229,17 @@ public class Player_Controller : SingletonMono<Player_Controller>
 
     public void Reload()
     {
+#if UNITY_STANDALONE
+        if (Input.GetMouseButton(0)&&CurrentBulletNum < maxBulletNum)
+        {
+            PlayerState = PlayerState.Reload;
+        }
+#elif UNITY_ANDROID
         if (CurrentBulletNum < maxBulletNum)
         {
             PlayerState = PlayerState.Reload;
         }
+#endif
     }
 
     private IEnumerator DoReLoad()
@@ -253,6 +280,13 @@ public class Player_Controller : SingletonMono<Player_Controller>
         {
             PlayerState = PlayerState.Normal;
         }
+    }
+
+    public void Revive()
+    {
+        HP = 100;
+        PlayerState = PlayerState.Normal;
+        animator.SetTrigger("Revive");
     }
 
     private void OnDestroy()

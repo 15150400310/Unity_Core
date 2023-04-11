@@ -38,7 +38,7 @@ public class UI_SaveWindow : UIPanelBase
 
     protected override void RegisterEventListener()
     {
-        base.RegisterEventListener();
+        //base.RegisterEventListener();
         EventManager.AddEventListener("UpdateSaveItem", UpdateSaveItemFlag);
     }
 

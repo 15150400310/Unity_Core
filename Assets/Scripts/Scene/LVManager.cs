@@ -28,6 +28,8 @@ public class LVManager : LogicManagerBase<LVManager>
         Score = 0;
         //初始化玩家
         Player_Controller.Instance.Init(ConfigManager.Instance.GetConfig<Player_Config>("Player"));
+
+        AdsManager.Instance.LoadRewardedAd();
     }
 
     private void Update()
@@ -42,12 +44,14 @@ public class LVManager : LogicManagerBase<LVManager>
     {
         EventManager.AddEventListener("MonsterDie", OnMonsterDie);
         EventManager.AddEventListener("GameOver", OnGameOver);
+        EventManager.AddEventListener("Nirvana", Nirvana);
     }
 
     protected override void CancelEventListener()
     {
         EventManager.RemoveEventListener("MonsterDie", OnMonsterDie);
         EventManager.RemoveEventListener("GameOver", OnGameOver);
+        EventManager.RemoveEventListener("Nirvana", Nirvana);
     }
 
     private void OnMonsterDie()
@@ -79,6 +83,14 @@ public class LVManager : LogicManagerBase<LVManager>
             GameManager.Instance.ContinueGame();
 
         }
+    }
+
+    private void Nirvana()
+    {
+        //满血复活
+        UIManager.Instance.Close<UI_ResultWindow>();
+        Player_Controller.Instance.Revive();
+        GameManager.Instance.ContinueGame();
     }
 
     protected override void OnDestroy()

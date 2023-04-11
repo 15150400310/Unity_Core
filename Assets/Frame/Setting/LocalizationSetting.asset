@@ -1434,7 +1434,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
@@ -1647,50 +1647,21 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: UI_GameMainWindow
+      Data: Ads_Button_Text
     - Name: $v
       Entry: 7
-      Data: 104|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 105|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Reload_Button_Text
-    - Name: $v
-      Entry: 7
-      Data: 106|Frame.LocalizationModel, Assembly-CSharp
+      Data: 104|Frame.LocalizationModel, Assembly-CSharp
     - Name: contentDic
       Entry: 7
-      Data: 107|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+      Data: 105|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 108|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+      Data: 106|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -1712,7 +1683,113 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 109|Frame.L_Text, Assembly-CSharp
+      Data: 107|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: "\u89C2\u770B\u5E7F\u544A"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 108|Frame.L_Text, Assembly-CSharp
+    - Name: content
+      Entry: 1
+      Data: Watch Ads
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_GameMainWindow
+    - Name: $v
+      Entry: 7
+      Data: 109|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Frame.LocalizationModel,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 110|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Reload_Button_Text
+    - Name: $v
+      Entry: 7
+      Data: 111|Frame.LocalizationModel, Assembly-CSharp
+    - Name: contentDic
+      Entry: 7
+      Data: 112|System.Collections.Generic.Dictionary`2[[Frame.LanguageType, Assembly-CSharp],[Frame.ILanguage_Content,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 113|System.Collections.Generic.EnumEqualityComparer`1[[Frame.LanguageType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 114|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: "\u6362\u5F39"
@@ -1730,7 +1807,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 110|Frame.L_Text, Assembly-CSharp
+      Data: 115|Frame.L_Text, Assembly-CSharp
     - Name: content
       Entry: 1
       Data: Reload
