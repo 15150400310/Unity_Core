@@ -29,7 +29,6 @@ public class LVManager : LogicManagerBase<LVManager>
         //初始化玩家
         Player_Controller.Instance.Init(ConfigManager.Instance.GetConfig<Player_Config>("Player"));
 
-        AdsManager.Instance.LoadRewardedAd();
     }
 
     private void Update()

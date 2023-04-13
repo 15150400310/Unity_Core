@@ -60,9 +60,6 @@ public class UI_ResultWindow : UIPanelBase
 
     private void Ads_ButtonClick()
     {
-        AdsManager.Instance.ShowRewardedAd(()=> {
-            EventManager.EventTrigger("Nirvana");
-        });
         
     }
 }

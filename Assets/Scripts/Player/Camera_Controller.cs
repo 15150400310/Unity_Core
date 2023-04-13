@@ -26,6 +26,6 @@ public class Camera_Controller : SingletonMono<Camera_Controller>
 
     private void FollowPlayer()
     {
-        transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, speed*Time.deltaTime);
     }
 }
