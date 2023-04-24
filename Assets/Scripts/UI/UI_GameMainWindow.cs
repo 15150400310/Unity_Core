@@ -59,7 +59,7 @@ public class UI_GameMainWindow : UIPanelBase
 
     protected override void RegisterEventListener()
     {
-        //base.RegisterEventListener();
+        base.RegisterEventListener();
         EventManager.AddEventListener<int>("UpdateHp", UpdateHp);
         EventManager.AddEventListener<int>("UpdateScore", UpdateScore);
         EventManager.AddEventListener<int,int>("UpdateBullet", UpdateBullet);
@@ -67,7 +67,7 @@ public class UI_GameMainWindow : UIPanelBase
 
     protected override void CancelEventListener()
     {
-        //base.CancelEventListener();
+        base.CancelEventListener();
         EventManager.RemoveEventListener<int>("UpdateHp", UpdateHp);
         EventManager.RemoveEventListener<int>("UpdateScore", UpdateScore);
         EventManager.RemoveEventListener<int, int>("UpdateBullet", UpdateBullet);

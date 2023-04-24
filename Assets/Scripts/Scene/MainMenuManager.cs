@@ -14,7 +14,7 @@ public class MainMenuManager : LogicManagerBase<MainMenuManager>
         GameManager.Instance.ContinueGame();
         UIManager.Instance.CloseAll();
         //播放背景音乐
-        AudioManager.Instance.PlayBGAudio("Audio/BG/Menu");
+        AudioManager.Instance.PlayBGAudio("Audio/BG/maou_bgm_cyber44");
         //显示菜单主窗口
         UIManager.Instance.Show<UI_MainMenuMainWindow>();
     }

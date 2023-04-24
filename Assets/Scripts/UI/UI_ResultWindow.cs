@@ -60,6 +60,6 @@ public class UI_ResultWindow : UIPanelBase
 
     private void Ads_ButtonClick()
     {
-        
+        RewardedAds.Instance.ShowAd();
     }
 }

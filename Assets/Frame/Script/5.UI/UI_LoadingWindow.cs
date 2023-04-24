@@ -27,14 +27,14 @@ namespace Frame
 
         protected override void RegisterEventListener()
         {
-            //base.RegisterEventListener();
+            base.RegisterEventListener();
             EventManager.AddEventListener<float>("LoadingSceneProgress", UpdateProgress);
             EventManager.AddEventListener("LoadSceneSucceed", OnLoadSceneSucceed);
         }
 
         protected override void CancelEventListener()
         {
-            //base.CancelEventListener();
+            base.CancelEventListener();
             EventManager.RemoveEventListener<float>("LoadingSceneProgress", UpdateProgress);
             EventManager.RemoveEventListener("LoadSceneSucceed", OnLoadSceneSucceed);
         }
