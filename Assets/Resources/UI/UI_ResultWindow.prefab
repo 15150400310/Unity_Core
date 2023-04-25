@@ -620,8 +620,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 953b8cf04047ae4478feb9b1f9d8b748, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -645,8 +645,10 @@ MonoBehaviour:
   score_Text: {fileID: 0}
   back_Button_Text: {fileID: 0}
   re_Button_Text: {fileID: 0}
+  ads_Button_Text: {fileID: 0}
   back_Button: {fileID: 0}
   re_Button: {fileID: 0}
+  ads_Button: {fileID: 0}
 --- !u!1 &8048843354719673710
 GameObject:
   m_ObjectHideFlags: 0

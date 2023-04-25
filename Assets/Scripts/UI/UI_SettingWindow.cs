@@ -71,7 +71,10 @@ public class UI_SettingWindow : UIPanelBase
         effectVolume_Slider.value = GameManager.Instance.UserSetting.EffectVolume;
         languageType_Dropdown.value = (int)GameManager.Instance.UserSetting.LanguageType;
 #if UNITY_ANDROID
-        setting_Button.Show();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name!="MainMenu")
+        {
+            setting_Button.Show();
+        }
 #endif
     }
 

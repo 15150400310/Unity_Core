@@ -819,7 +819,7 @@ GameObject:
   - component: {fileID: 6358561468592691832}
   - component: {fileID: 4544529103284801000}
   m_Layer: 5
-  m_Name: NewGameWindow
+  m_Name: UI_NewGameWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -874,8 +874,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 953b8cf04047ae4478feb9b1f9d8b748, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -896,10 +896,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815f393ece779ae49a646a83ac2f0787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserName_InputField: {fileID: 6358561467660115168}
-  UserName_Text: {fileID: 6358561467053366500}
-  UserName_Placeholder_Text: {fileID: 6358561466939686441}
-  Back_Button: {fileID: 6358561467822379596}
-  Play_Button: {fileID: 6358561467411140469}
-  Back_Button_Text: {fileID: 6358561467389675902}
-  Play_Button_Text: {fileID: 6358561467781744549}
+  userName_Text: {fileID: 0}
+  userName_Placeholder_Text: {fileID: 0}
+  play_Button_Text: {fileID: 0}
+  back_Button_Text: {fileID: 0}
+  play_Button: {fileID: 0}
+  back_Button: {fileID: 0}
+  userName_InputField: {fileID: 0}

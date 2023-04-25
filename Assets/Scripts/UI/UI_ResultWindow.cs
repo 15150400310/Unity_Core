@@ -37,6 +37,7 @@ public class UI_ResultWindow : UIPanelBase
     {
         back_Button_Text.FrameLocalSet(LocalSetPackName, "Back_Button_Text");
         re_Button_Text.FrameLocalSet(LocalSetPackName, "Re_Button_Text");
+        ads_Button_Text.FrameLocalSet(LocalSetPackName, "Ads_Button_Text");
     }
     public void Init(int score)
     {
